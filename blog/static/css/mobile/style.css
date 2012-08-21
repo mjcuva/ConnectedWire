@@ -1,0 +1,203 @@
+body {
+	background-image: url(/static/images/back.png);
+
+}
+
+#entirePage {
+	min-width: 200px; /* your desired width */
+    max-width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+img{
+	width: 100%
+}
+#logo{
+	width: 90%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: none;
+}
+
+#page {
+	width: 90%;
+	position: absolute;
+	min-height:100px;
+	height:auto !important;
+	height:100px; 
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	padding-left: 10px;
+	padding-right: 10px;
+	/*background-color: rgba(245,245,220, .5);*/
+	background-image: url('/static/images/back2.png');
+	margin-top: 10px;
+	padding-bottom: 100px !important;
+	-moz-box-shadow: 0px 0px 6px #000;
+	
+	-webkit-box-shadow: 0px 0px 6px #000;
+	
+	box-shadow: 0px 0px 6px #000;
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	font-style: normal;
+}
+
+a:hover {
+	color: rgb(78, 8, 10)
+}
+
+#page a {
+	color: #6f0a0e;
+	font-style:italic;
+}
+
+#page a:hover {
+	color: #300406
+}
+
+h1 {
+	font-size: 20px;
+}
+
+
+#date {
+
+	 position: relative;
+	 color:black;
+
+ }
+ 
+ #otherinfo {
+	 text-align: right;
+	 display inline;
+	 margin-bottom: 10px;
+	 margin-top: -20px;
+}
+ 
+ #otherinfo img{
+	 width: 19px;
+	 height: 19px;
+
+ }
+ 
+ #otherinfo a{
+	 padding: 0px;
+	 font-style: normal;
+	 width: auto;
+	 height: 19px;
+	 /*color: rgb(153, 150, 51);*/
+	 color: #6f0a0e;;
+
+ }
+ 
+ #otherinfo a:hover{
+	 /*color: rgb(110, 90, 37);*/
+	 color: rgb(78, 8, 10)
+	 
+ }
+ 
+ #title {
+	 margin-bottom: -10px;
+
+ }
+ 
+ #edit {
+	 color: black !important;
+ }
+
+ .category {
+	 margin-top: -8px;
+	 background-color: red;
+	 display: inline;
+	 width: 70px;
+	 text-align: center;
+	 height: 18px;
+	 z-index: 100 !important;
+	 position: relative;
+	 padding: 3px 5px 3px 5px;
+	 
+}
+
+ .category #catlink{
+	 font-style:normal;
+	 color: rgb(245,245,220);
+}
+
+.category:hover{
+	background-color: rgb(78, 8, 10);
+	color: rgb(245,245,220);
+}
+
+.category #catlink:hover{
+	color: rgb(245,245,220);
+}
+
+#News {
+	background-color: red;
+}
+
+#News:hover{
+	background-color: rgb(78, 8, 10);
+}
+
+#Google {
+	background-color: #1ebf0e
+}
+
+#Google:hover{
+	background-color: #0d5b06
+}
+
+#Apple {
+	background-color: #3865a4
+}
+
+#Apple:hover{
+	background-color: #1e375b
+}
+
+#Microsoft{
+	background-color: #c7cc1b
+}
+
+#Microsoft:hover{
+	background-color: #696c0f
+}
+
+#Rumor {
+	background-color: #b14b9c
+}
+
+#Rumor:hover{
+	background-color: #4f2146
+}
+
+#Editorial{
+	background-color: #dc7b22
+}
+
+#Editorial:hover{
+	background-color: #754113
+}
+
+#Favorites{
+	background-color: #33cad3
+}
+
+#Favorites:hover {
+	background-color: #2d6974
+}
+
+.post span div{
+	display: inline;
+	width: 0px;
+}

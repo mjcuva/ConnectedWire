@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>My Page</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/mobile/style.css">
+
+</head> 
+<body> 
+	<div id='entirepage'>
+		<a href="/"><img id="logo" src='/static/images/logo.png'></a>
+		<div id="page">	
+			{% block content %}
+				{% include 'mobile/index.html' %}
+					
+			{% endblock %}	
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/static/javascript/jquery.js"></script>
+	<script type="text/javascript" src="/static/javascript/endless.js"></script>
+	<script type="text/javascript" src="/static/javascript/endless_on_scroll.js"></script>
+</body>
+</html>

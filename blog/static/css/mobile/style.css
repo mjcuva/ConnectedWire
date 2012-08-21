@@ -201,3 +201,12 @@ h1 {
 	display: inline;
 	width: 0px;
 }
+
+blockquote {
+	font-style: italic;
+	margin-left: 10px;
+	border-left: 1px solid #808080;
+	padding: 0px;
+	padding-left: 10px;
+
+}

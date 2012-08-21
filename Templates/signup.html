@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		
+		<link href="/static/css/signup.css" rel="stylesheet" type="text/css">
+		
+	</head>
+	
+	<body>
+	
+		<div id="signupBox">
+			<form action='/signup/' method="post">{% csrf_token %}
+				<div id="signup">Signup</div>
+				<table>
+					<tr>
+						<td class="item">Username</td>
+						<td>{{form.username}}</td>
+					</tr>
+					<tr>
+						<td class="item">Password</td> 
+						<td>{{form.password}}</td>
+					</tr>
+					<tr>
+						<td class="item">Verify Password</td>
+						<td>{{form.verify}}</td>
+					</tr>
+					<tr>
+						<td class="item">Authorization Code</td>
+						<td>{{form.auth}}</td>
+					</tr>
+				</table>
+			
+				<input type="submit">
+			
+			</form>
+		
+		</div>
+		
+		{%if error %}
+		<div id="error">
+			{{error}}
+		</div>
+		{% endif %}
+		
+		
+	</body>

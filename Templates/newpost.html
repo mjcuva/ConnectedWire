@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<link href="/static/css/newpost.css" rel="stylesheet" type="text/css">
+	</head>
+	
+	<body>
+		
+		<div id="header"><a href="/">{{username}}</a> | <a href="/logout">Logout</a></div>
+		
+		
+		<div id="newpostBox">
+			<div id="title"><h1>New Post</h1></div>
+			<form enctype="multipart/form-data" method ="post" action={{action}}>{% csrf_token %}
+				<table>
+					<tr>
+						<td>
+							<label for="title">
+								Title:
+						</td>
+						<td>
+							{{form.title}}
+						</td>
+							</label>
+					</tr>
+					<tr>
+						<td>
+							<label for="source">
+								Source:
+						</td>
+						<td>
+							{{form.sourceUrl}}
+						</td>	
+						</label>
+					</tr>
+					<tr>
+						<td>
+							<label for="Categories">
+								Category:
+						</td>
+						<td>
+							{{form.categories}}
+						</td>	
+						</label>
+					</tr>
+					<tr>
+						<td>
+							<label for="imageUpload">
+								Image:
+						</td>
+						<td>
+							{{form.image}}
+						</td>
+						</label>
+					</tr>
+				</table>
+					<div id ="contentTitle">Content (HTML):</div>
+					{{form.content}}
+				
+				<div id="submitbox">	
+					<input type="submit">  
+					
+					{% if edit %}
+					<input type="submit" name="Delete" value="Delete">
+					{% endif %}
+				</div>
+				
+			</form>
+		</div>
+		
+		{%if error %}
+		<div id="error">
+			{{error}}
+		</div>
+		{% endif %}
+		
+	</body>
+	
+</html>

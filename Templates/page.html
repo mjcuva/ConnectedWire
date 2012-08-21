@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<h1 id = "title">{{page.title}}</h1>
+
+	<hr>
+
+	{% if page.image %}
+		<img src="{{page.image}}">
+	{% endif %}
+	<span>{{page.content|safe}}</span>
+
+	{% if username %}
+	<a id= "button" href="/edit/{{page.title}}">Edit</a>
+	{% endif %}
+{% endblock %}

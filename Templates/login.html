@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		
+		<link href="/static/css/login.css" rel="stylesheet" type="text/css">
+		
+	</head>
+	
+	<body>
+		
+		<div id="loginBox">
+			<form action = "/login/" method = "post"> {% csrf_token %}
+			
+				<h1>Login</h1>
+				<table>
+					<tr>
+						<td class="item">Username</td>
+						<td>{{form.username}}</td>
+					</tr>
+					<tr>
+						<td  class="item">Password</td> 
+						<td>{{form.password}}</td>
+					</tr>
+				</table>
+			
+				<input type="submit" >
+			
+			</form>
+		</div>
+		
+		{%if error %}
+		<div id="error">
+			{{error}}
+		</div>
+		{% endif %}
+		
+	</body>
+	
+</html>

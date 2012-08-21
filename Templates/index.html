@@ -1,0 +1,55 @@
+{% load custom_filters %}
+
+
+{% block content %}
+
+{% load endless %}
+
+{% paginate 5 posts %}
+
+{% for post in posts %}
+					
+		{% if post.sourceUrl %}
+			<a href="{{post.sourceUrl}}" target="_blank"><h1  id = "title">{{post.title|safe}}</h1></a>
+		{% else %}
+			<h1 id = "title">{{post.title|safe}}</h1>
+		{% endif %}
+
+			<hr>
+			{% for cat in post.title|getCat %}
+			<span class='category' id='{{cat}}'><a id = "catlink" href="/category/{{cat}}">{{cat}}</a></span>
+			{% endfor %}
+		{% if username %}
+			<div id="otherinfo">
+				<a id = "edit" href="edit/{{post.id}}">Edit</a> | <span id="date">{{post.published}}</span> | <a href="/{{post.link}}">Permalink</a>
+			</div>
+		{% else %}
+			<div id="otherinfo">
+				<a href="/About">By Marc Cuva</a> | <span id="date">{{post.published}}</span> | <a href="/{{post.link}}#disqus_thread">&#9733;</a>
+			</div>
+		{% endif %}
+		{% if post.image %}
+			<img src="{{post.image}}">
+		{% endif %}
+		<span>{{post.content|safe}}</span>
+
+		{% if forloop.counter == 2%}
+		<div id="ad">
+			<script type="text/javascript"><!--
+				google_ad_client = "ca-pub-9715491998171760";
+				/* Between Posts */
+				google_ad_slot = "6956848914";
+				google_ad_width = 468;
+				google_ad_height = 60;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		</div>
+		{% endif %}
+	{% endfor %}
+
+	{% show_more " "%}
+
+{% endblock %}

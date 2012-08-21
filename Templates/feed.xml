@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0">
+  <channel>
+    <title>The Connected Wire</title>
+    <description>Technology news for the connected world.</description>
+    <link>http://www.theconnectedwire.com</link>
+    <lastBuildDate>{{now}}</lastBuildDate>
+
+    {% for post in posts %}
+    <item>
+      <date>{{ post.published|date:"M j, Y" }}</date>
+
+      <title>{{ post.title }}</title>
+      <body>{{ post.content|striptags }}</body>
+
+      <absolute_url>http://www.theconnectedwire.com/{{ post.link }}</absolute_url>
+    </item>
+    {% endfor %}
+  </channel>

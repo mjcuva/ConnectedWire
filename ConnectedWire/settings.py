@@ -2,8 +2,15 @@
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
+import paths
+import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+DJANGO_ROOT = paths.DJANGO_ROOT
+
+SITE_ROOT = paths.SITE_ROOT
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -14,7 +21,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/Marc/Desktop/ConnectedWire/Databases/mydb.db',                      # Or path to database file if using sqlite3.
+        'NAME': os.path.join(SITE_ROOT, 'Databases') + '/mydb.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -50,7 +57,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/Users/Marc/Desktop/connectedwire/blog/static/images/posts/'
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'blog/static/images/posts/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -109,7 +116,8 @@ ROOT_URLCONF = 'ConnectedWire.urls'
 WSGI_APPLICATION = 'ConnectedWire.wsgi.application'
 
 TEMPLATE_DIRS = (
-    '/Users/Marc/Desktop/ConnectedWire/Templates/'
+    #'/Users/Marc/Desktop/ConnectedWire/Templates/'
+    os.path.join(SITE_ROOT, 'Templates')
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

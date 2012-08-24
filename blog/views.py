@@ -27,7 +27,7 @@ import util
 import blogForms
 
 #PIL Image Library
-import Image
+from PIL import Image
 
 #Time Function
 import datetime

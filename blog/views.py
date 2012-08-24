@@ -416,7 +416,7 @@ def search(request):
 def save(request, form, image, saveType, url = None): 
 
 		#Loads an instace of FileSystemStorage
-		store = FileSystemStorage(paths.SITE_ROOT + '/blog/static/images/posts')
+		store = FileSystemStorage(paths.SITE_ROOT + '/images/')
 		if image:
 			#Checks if an image already exists
 			#If it does, use that image as the url

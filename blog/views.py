@@ -188,7 +188,8 @@ def signup(request):
 			if not util.comparePassword(request.POST['password'], request.POST['verify']):
 				error = "Passwords did not match"
 			else:
-				user = User(username = request.POST['username'], password = request.POST['password'])
+				password = util.make_pw_hash(request.POST['username'], request.POST['password'])
+				user = User(username = request.POST['username'], password = password)
 				user.save()
 				#UID is used to store the user in a cookie
 				uid = user.id
@@ -215,7 +216,7 @@ def login(request):
 				#Gets the user from the db if it exists
 				u = User.objects.get(username=request.POST['username'])
 				#Compares password user gave with pass stored in db
-				if request.POST['password'] == u.password:
+				if util.valid_pw(request.POST['username'], request.POST['password'], u.password):
 					#Sets cookie if login is valid
 					uid = u.id
 					val = util.make_secure_val(str(uid))

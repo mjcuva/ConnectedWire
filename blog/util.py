@@ -14,7 +14,9 @@ from string import letters
 #Import the User Database
 from models import User
 
-secret = "secretword"
+import secret
+
+secret = secret.SECRET
 
 #Regular Expresions for input
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")

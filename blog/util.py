@@ -14,6 +14,9 @@ from string import letters
 #Import the User Database
 from models import User
 
+# Excpetion for objects that don't exist in the database
+from django.core.exceptions import ObjectDoesNotExist
+
 import secret
 
 secret = secret.SECRET
@@ -69,7 +72,10 @@ def checkLoggedIn(request):
 	if request.COOKIES.has_key( 'user' ):
 		if check_secure_val(request.COOKIES['user']):
 			uid = request.COOKIES[ 'user' ].split('|')[0]
-			user =  User.objects.get(pk=uid)
+			try:
+				user =  User.objects.get(pk=uid)
+			except ObjectDoesNotExist:
+				return None
 			if user:
 				return user
 			else:
@@ -86,5 +92,12 @@ def check_secure_val(secure_val):
   	val = secure_val.split('|')[0]
   	if secure_val == make_secure_val(val):
   	  return val
+  	  
+def log_traceback(exception, args):
+    import sys, traceback, logging
+    exceptionType, exceptionValue, exceptionTraceback = sys.exc_info()
+    logging.debug(exception)
+    logging.debug(args)
+    for tb in traceback.format_exception(exceptionType, exceptionValue, exceptionTraceback):
+        logging.debug(tb)
 	
-

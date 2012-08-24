@@ -16,7 +16,7 @@ class Post(models.Model):
 		
 class User(models.Model):
 	username = models.CharField(max_length = 10)
-	password = models.CharField(max_length = 10)
+	password = models.CharField(max_length = 100)
 	
 	def __unicode__(self):
 		return self.username

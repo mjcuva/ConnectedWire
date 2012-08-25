@@ -55,7 +55,7 @@ import string
 
 import re
 
-import wordcount
+import stats
 
 import paths
 
@@ -100,9 +100,8 @@ def index(request):
 		template = page_template
 		mobileTemplate = mobilePage_template
 
-	count = wordcount.getWordCount()
+	count = stats.getWordCount()
 
-	count = format(count, ",d")
 
 	#Old Pagination Code
 	# #Creates the Pagination for the posts queried

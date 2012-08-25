@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^search/?', 'blog.views.search'),
     url(r'^import/?', 'blog.import.importer'),
     url(r'^feed/?', 'blog.feed.feedBurn'),
+    url(r'^dashboard/?', 'blog.dashboard.dash'),
     url(r'^(\D+)/?$', 'blog.views.page'),
     # url(r'^dbrequest.json$', 'blog.views.dbrequest')
     

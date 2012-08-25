@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html>
+	<head>
+		<link type="text/css" rel='stylesheet' href="/static/dashboard/assets/css/bootstrap.css" />
+		<link href="/static/dashboard/assets/css/bootstrap.css" rel="stylesheet">
+	    <link href="/static/dashboard/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	    <link href="/static/dashboard/assets/css/docs.css" rel="stylesheet">
+	    <link href="/static/dashboard/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+	    <style type="text/css">
+	    	.row {
+	    		text-align: center;
+	    	}
+	    </style>
+
+	</head>
+
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<ul class="nav">
+						<li class="active">
+							<a href="/dashboard">Dashboard</a>
+						</l1>
+						<li>
+							<a href="/newpost">New Post</a>
+						</li>
+						<li>
+							<a href="/">Home Page</a>
+						</li>
+						<li>
+							<a href="http://theconnectedwire.com/cpanel">CPanel</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="jumbotron masthead">
+			<div class="container">
+
+				<h1>Hello {{username}}.</h1><br>
+				<p>It has been {{daysSince}} {{day}} since you last wrote a post.  How about writing about <a href="{{suggestionLink}}">{{suggestionTitle}}</a>?</p>
+				<br>
+				<p>You have written a total of {{wordCount}} words in {{postCount}} posts.</p>
+			</div>
+		</div>
+
+		<div class="container">
+			<h1 class="row">Links</h1>
+			<div class="hero-unit ">
+				<div class="row">
+					<a class="btn btn-primary btn-large" href="http://analytics.google.com">Google Analytics</a>
+					<a class="btn btn-primary btn-large" href="http://google.com/adsense">Adsense</a>
+					<a class="btn btn-primary btn-large" href="http://reader.google.com/">Google Reader</a>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script type="text/javascript" src='/static/dashboard/assets/js/bootstrap.js"></script>
+
+	</body>
+
+</html>

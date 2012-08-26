@@ -1,0 +1,44 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<ul class="nav">
+				{% if request.path == '/' %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif%}
+					<a href="/">Home</a>
+				</l1>
+				{% if request.path == '/dashboard' %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif%}
+					<a href="/dashboard">Dashboard</a>
+				</li>
+				{% if request.path == '/newpost' %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif%}
+					<a href="/newpost">New Post</a>
+				</li>
+				{% if request.path == '/newpage' %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif%}
+					<a href="/newpage">New Page</a>
+				</li>
+				<li>
+					<a href="http://theconnectedwire.com/cpanel">CPanel</a>
+				</li>
+				<li>
+					<a href="/logout">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+

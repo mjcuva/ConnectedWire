@@ -32,6 +32,7 @@ under the License.*/
 
 	background-color: #F5F5DC;
 	padding: 30px;
+	float: left;
 }
 	
 #header {
@@ -49,8 +50,8 @@ under the License.*/
 	text-align: center;
 	width: 200px;
 	height: 100px;
-	margin-top: 50px;
-	margin-left: auto;
+	margin-top: 450px;
+	margin-left: 800px;
 	margin-right: auto;
 	height:2em;
 	padding:1em 0 1em 0;

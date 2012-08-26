@@ -20,13 +20,20 @@ under the License. -->
 <html>
 
 	<head>
+		<link href="/static/dashboard/assets/css/bootstrap.css" rel="stylesheet" type="text/css" >
 		<link href="/static/css/newpost.css" rel="stylesheet" type="text/css">
 	</head>
+
+	<style type="text/css">
+
+		#newpostBox {
+			margin-top: 70px;
+		}
+	</style>
 	
 	<body>
 		
-		<div id="header"><a href="/">{{username}}</a> | <a href="/logout">Logout</a></div>
-		
+		{% include 'navbar.html' %}
 		
 		<div id="newpostBox">
 			<div id="title"><h1>New Post</h1></div>

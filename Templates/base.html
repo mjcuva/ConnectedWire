@@ -20,7 +20,12 @@ under the License. -->
 
 	<head>
 
+		{% if username %}
+		<link href="/static/dashboard/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+		{% endif %}
 		<link href="/static/css/style.css" rel="stylesheet" type="text/css">
+		
+
 
 		{% block style %}
 		{% endblock %}
@@ -64,8 +69,11 @@ under the License. -->
 <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	
-	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+	{% if username %}
+	#logoBar{
+		margin-top: 20px;
+	}
+	{% endif %}
 
 </style>
       
@@ -78,7 +86,8 @@ under the License. -->
 		
 			{% block user %}
 			{% if username %}
-			<div id="header"><a href="/dashboard">Dashboard</a> | <a href="/newpost">New Post</a> | <a href="/logout">Logout</a></div>
+			{% include 'navbar.html' %}
+			
 			{% endif %}
 			{% endblock %}
 
@@ -117,10 +126,6 @@ under the License. -->
 					{% for page in pages%}
 					<a href="/{{page.title}}">{{page.title}}</a>
 					{% endfor %}
-
-					{% if username %}
-					<a href="/newpage">New Page</a>
-					{% endif %}
 
 				</div>
 

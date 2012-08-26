@@ -41,10 +41,10 @@ def getPostCount():
 	return postcount
 
 def daysSince():
-	last = Post.objects.all().order_by('-published')[0].published.replace(tzinfo=None)
-	now = datetime.datetime.now()
+	last = Post.objects.all().order_by('-published')[0].published.replace(tzinfo=None).day
+	now = datetime.datetime.now().day
 	delta = now - last
-	return delta.days
+	return delta
 
 def suggestion():
 	page = urllib2.urlopen('http://techmeme.com').read()
@@ -63,9 +63,15 @@ def suggestion():
 
 	title = topItem[0].contents[0]
 
-	title = title.encode('ascii')
+	newtitle = ""
 
-	return title, link
+	for char in title:
+	  try:
+	    newtitle += str(char)
+	  except UnicodeEncodeError:
+	  	newtitle += str('--')
+
+	return newtitle, link
 
 
 

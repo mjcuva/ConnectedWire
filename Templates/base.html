@@ -1,3 +1,5 @@
+<!doctype html>
+
 <!-- Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information
@@ -14,8 +16,6 @@ software distributed under the License is distributed on an
 KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License. -->
-
-<!doctype html>
 <html>
 
 	<head>
@@ -31,6 +31,8 @@ under the License. -->
 		{% endblock %}
 
 		<title>The Connected Wire</title>
+		
+		<!-- Disqus -->
 		  <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'theconnectedwire'; // required: replace example with your forum shortname
@@ -44,7 +46,7 @@ under the License. -->
         }());
         </script>
 
-		        <!-- Put the following javascript before the closing </head> tag. -->
+		        <!-- Google custom search -->
 		<script>
 		  (function() {
 		    var cx = '014162489051779201656:nvbzwesmhwk';
@@ -131,7 +133,7 @@ under the License. -->
 				<div id='paginator'>{% block pagination %}{% endblock %}</div>
 				
 				
-			</div>
+				</div>
 
 			<div id="leftBar">
 				<div class="sidebarLeft" id="upperLeft">
@@ -167,15 +169,15 @@ under the License. -->
 					</div>
 
 
-<div id="mc_embed_signup" class="sidebarRight">
-<form action="http://theconnectedwire.us5.list-manage.com/subscribe/post?u=b42d4e952702aa0a6495509e3&amp;id=093bb83a9f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-	<label for="mce-EMAIL">Subscribe for updates!</label>
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-</form>
-</div>
+					<!-- MailChimp -->
+					<div id="mc_embed_signup" class="sidebarRight">
+						<form action="http://theconnectedwire.us5.list-manage.com/subscribe/post?u=b42d4e952702aa0a6495509e3&amp;id=093bb83a9f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<label for="mce-EMAIL">Subscribe for updates!</label>
+							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+							<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+						</form>
+					</div>
 
-<!--End mc_embed_signup-->
 
 					<div class="sidebarRight" id="archive">
 						<h3>Archive</h3>
@@ -187,11 +189,6 @@ under the License. -->
 				</div>
 			</div>
 
-
-
-
-			
-		</div>
 
 		<!-- Javascript Files -->
 		<script type="text/javascript" src="/static/javascript/jquery.js"></script>

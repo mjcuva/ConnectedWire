@@ -43,7 +43,7 @@ def dash(request):
 	# Gets the logged in user, or redirects
 	username = util.checkLoggedIn(request)
 	if not username:
-		return HttpResponseRedirect('/')
+		return HttpResponseRedirect('/login')
 
 	# Gets total wordcount
 	wordCount = stats.getWordCount()

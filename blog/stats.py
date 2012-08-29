@@ -69,7 +69,7 @@ def suggestion():
 	  try:
 	    newtitle += str(char)
 	  except UnicodeEncodeError:
-	  	newtitle += str('--')
+	  	pass
 
 	return newtitle, link
 

@@ -1,22 +1,3 @@
-/*Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.*/
-
-
-
 body{
 	position: relative;
 	font-family: Helvetica, Arial, sans-serif;
@@ -128,10 +109,11 @@ a:hover {
 	-moz-border-radius:10px;  /* for Firefox */
 	-webkit-border-radius:10px; /* for Webkit-Browsers */
 	border-radius:10px; /* regular */
-	color: rgb(78, 8, 10)
+	color: rgb(78, 8, 10);
 }
 
 #LowerLeft {
+	background-image: none;
 	background-color: white;
 	margin-top: 10px;
 	height: auto;
@@ -222,27 +204,27 @@ a:hover {
 	 margin-bottom: 0px;
  } */
  
- #date {
+ .date {
 
 	 position: relative;
 	 color:black;
 
  }
  
- #otherinfo {
+ .otherinfo {
 	 text-align: right;
 	 display inline;
 	 margin-bottom: 10px;
 	 margin-top: -20px;
 }
  
- #otherinfo img{
+ .otherinfo img{
 	 width: 19px;
 	 height: 19px;
 
  }
  
- #otherinfo a{
+ .otherinfo a{
 	 padding: 0px;
 	 font-style: normal;
 	 width: auto;
@@ -252,18 +234,18 @@ a:hover {
 
  }
  
- #otherinfo a:hover{
+ .otherinfo a:hover{
 	 /*color: rgb(110, 90, 37);*/
 	 color: rgb(78, 8, 10)
 	 
  }
  
- #title {
+ .title {
 	 margin-bottom: -10px;
 
  }
  
- #edit {
+ .edit {
 	 color: black !important;
  }
 
@@ -295,9 +277,9 @@ img {
 	 
 }
 
-.category #catlink{
-	 font-style:normal;
-	 color: rgb(245,245,220);
+.category .catlink{
+	 font-style:normal !important;
+	 color: rgb(245,245,220) !important;
 }
 
 .category:hover{
@@ -305,63 +287,63 @@ img {
 	color: rgb(245,245,220);
 }
 
-.category #catlink:hover{
+.category .catlink:hover{
 	color: rgb(245,245,220);
 }
 
-#News {
+.News {
 	background-color: red;
 }
 
-#News:hover{
+.News:hover{
 	background-color: rgb(78, 8, 10);
 }
 
-#Google {
+.Google {
 	background-color: #1ebf0e
 }
 
-#Google:hover{
+.Google:hover{
 	background-color: #0d5b06
 }
 
-#Apple {
+.Apple {
 	background-color: #3865a4
 }
 
-#Apple:hover{
+.Apple:hover{
 	background-color: #1e375b
 }
 
-#Microsoft{
+.Microsoft{
 	background-color: #c7cc1b
 }
 
-#Microsoft:hover{
+.Microsoft:hover{
 	background-color: #696c0f
 }
 
-#Rumor {
+.Rumor {
 	background-color: #b14b9c
 }
 
-#Rumor:hover{
+.Rumor:hover{
 	background-color: #4f2146
 }
 
-#Editorial{
+.Editorial{
 	background-color: #dc7b22
 }
 
-#Editorial:hover{
+.Editorial:hover{
 	background-color: #754113
 }
 
-#Favorites{
+.Favorites{
 	background-color: #33cad3
 }
 
-#Favorites:hover {
+.Favorites:hover {
 	background-color: #2d6974
 }
  

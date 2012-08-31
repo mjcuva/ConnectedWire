@@ -98,6 +98,7 @@ under the License. -->
 			{% block user %}
 			{% if username %}
 			<!-- {% include 'navbar.html' %} -->
+			<div id="header"><a href="/">Hello, {{username}}</a> | <a href="/dashboard">Dashboard <a> | <a href="/logout">Logout</a></div>
 			
 			{% endif %}
 			{% endblock %}

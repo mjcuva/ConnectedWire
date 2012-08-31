@@ -21,9 +21,11 @@ under the License. -->
 	<head>
 
 		{% if username %}
-		<link href="/static/dashboard/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<!-- <link href="/static/dashboard/assets/css/bootstrap.css" rel="stylesheet" type="text/css"> -->
 		{% endif %}
 		<link href="/static/css/style.css" rel="stylesheet" type="text/css">
+
+		<link href='http://fonts.googleapis.com/css?family=Headland+One' rel='stylesheet' type='text/css'>
 		
 
 
@@ -57,15 +59,7 @@ under the License. -->
 		  })();
 		</script>
 
-		<!--Facebook Crap -->
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=207424822657234";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+	
 
 		<!-- Google Analytics -->
 		<script type="text/javascript">
@@ -103,7 +97,7 @@ under the License. -->
 		
 			{% block user %}
 			{% if username %}
-			{% include 'navbar.html' %}
+			<!-- {% include 'navbar.html' %} -->
 			
 			{% endif %}
 			{% endblock %}
@@ -123,8 +117,33 @@ under the License. -->
 			<div id="top">
 				
 				<div id="page">
+					
+					
 
 				{% block content %}
+				<div id="hero">
+						
+					<a href="{{featured.0.Post.link}}"><div id="feature1"><div class="{{cats.0}}"><span id="featuredTitle">{{featured.0.Post.title|safe}}</span></div>
+
+						<img src="{{featured.0.imageURL}}">
+					</div></a>
+
+					<a href="{{featured.1.Post.link}}"><div id="feature2"><div class="{{cats.1}}"><span>{{featured.1.Post.title|safe}}</span></div>
+						<img src="{{featured.1.imageURL}}">
+					</div></a>
+
+					<a href="{{featured.2.Post.link}}"><div id="feature3"><div class="{{cats.2}}"><span>{{featured.2.Post.title|safe}}</span></div>
+						<img src="{{featured.2.imageURL}}">
+
+					</div></a>
+
+					<a href="{{featured.3.Post.link}}"><div id="feature4"><div class="{{cats.3}}"><span>{{featured.3.Post.title|safe}}</span></div>
+						<img src="{{featured.3.imageURL}}">
+
+					</div></a>
+
+
+				</div>
 				{% include 'index.html' %}
 				
 				{% endblock %}

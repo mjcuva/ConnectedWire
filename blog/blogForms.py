@@ -18,7 +18,6 @@
 from django import forms
 import models
 
-
 class SignupForm(forms.Form):
 	username = forms.CharField(max_length=10)
 	password = forms.CharField(widget=forms.PasswordInput, max_length = 10)
@@ -35,6 +34,7 @@ class newPostForm(forms.Form):
 	image = forms.ImageField(required = False)
 	content = forms.CharField(widget=forms.Textarea)
 	categories = forms.MultipleChoiceField(choices = models.CATEGORIES, widget = forms.CheckboxSelectMultiple)
+	box = forms.ChoiceField(choices=((x,x) for x in range(0,5)))
 
 class newPageForm(forms.Form):
 	title = forms.CharField(max_length = 100)

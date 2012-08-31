@@ -31,7 +31,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.template import RequestContext
 
 #Allows database operations
-from models import Post, User, Categories, Page
+from models import Post, User, Categories, Page, Featured
 
 # Excpetion for objects that don't exist in the database
 from django.core.exceptions import ObjectDoesNotExist
@@ -64,6 +64,8 @@ import re
 import stats
 
 import paths
+
+from django.conf import settings
 
 # Mobile user agents
 reg_b = re.compile(r"android.+mobile|avantgo|bada\\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|meego.+mobile|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino", re.I|re.M)
@@ -114,33 +116,26 @@ def index(request):
     # Gets the total wordcount
     count = stats.getWordCount()
 
+    # Get featured posts
+    featured = []
+    cats = []
+    for i in range(1,5):
+        try:
+            featured.append(Featured.objects.filter(box = i).order_by('-id')[0])
+            feature = Featured.objects.filter(box = i).order_by('-id')[0]
+            categories = Categories.objects.filter(Post__title=feature.Post.title)
+            for i in categories:
+                if not str(i) == 'News':
+                    cats.append(i)
+                    added = True
+            if not added:
+                cats.append('News')
+            added = False
+
+        except IndexError:
+            pass
+
     
-    #Old Pagination Code
-    # #Creates the Pagination for the posts queried
-    # paginator = Paginator(posts, 5)
-    
-    # #Gets what page of the blog was loaded
-    # page = request.GET.get('page')
-    
-    # #Loads the appropriate posts for the page
-    # try:
-    #   posts = paginator.page(page)
-    # except PageNotAnInteger:
-    #   posts = paginator.page(1)
-    #   page = 1
-    # except EmptyPage:
-    #   return HttpResponseRedirect('/?page=' + str(paginator.num_pages))
-    
-    # # Determines the pages the next and previous buttons should load, if they should exist
-    # if (int(page) + 1) > paginator.num_pages:
-    #   nextpage = None
-    # else:
-    #   nextpage = int(page) + 1
-    
-    # if (int(page) - 1) < 1:
-    #   prevpage = None
-    # else:
-    #   prevpage = int(page) - 1
     
     # Gets all of the pages
     pages = Page.objects.all().order_by("id")
@@ -148,7 +143,7 @@ def index(request):
     # Renders the page
     
     if not isMobile:
-        return render_to_response(template, {"posts" : posts, "pages":pages, "username": username, "wordcount": count}, context_instance=RequestContext(request))
+        return render_to_response(template, {"posts" : posts, "pages":pages, "username": username, "wordcount": count, "featured": featured, "cats":cats}, context_instance=RequestContext(request))
     else:
         return render_to_response(mobileTemplate, {"posts": posts}, context_instance=RequestContext(request))
 
@@ -315,9 +310,12 @@ def newpost(request):
         #saves post, returning an error if failed
         error, post = save(request,  form, image, "Post")
         if not error:
-            tweet = post.title + " - " + "http://www.theconnectedwire.com/" + post.link
-            twitter.updateTwitter(tweet)
-            return HttpResponseRedirect('/' + "?tweet=" + tweet)
+            if not settings.DEBUG:
+                tweet = post.title + " - " + "http://www.theconnectedwire.com/" + post.link
+                twitter.updateTwitter(tweet)
+                return HttpResponseRedirect('/' + "?tweet=" + tweet)
+            else:
+                return HttpResponseRedirect('/')
     
     else:
         form = blogForms.newPostForm()
@@ -365,6 +363,8 @@ def edit(request, url):
                 raise Http404
         except ObjectDoesNotExist:
             raise Http404
+
+
 def pageEdit(request, url):
     username = util.checkLoggedIn(request)
     if not username:
@@ -475,6 +475,10 @@ def save(request, form, image, saveType, url = None):
                     posts = Categories.objects.filter(Post__id = url)
                     for i in posts:
                         i.delete()
+                    featured = Featured.objects.filter(Post__id = url)
+                    if featured:
+                        featured.delete()
+
                 #Create a post with the correct information
                 
                 published = datetime.datetime.now()
@@ -503,7 +507,17 @@ def save(request, form, image, saveType, url = None):
                             published = published,
                             link = link)
                 post.save()
-                
+
+                    
+                featuredBox = request.POST['box']
+
+                if featuredBox != str(0):
+                    if not imageURL:
+                        return "You need an image", post
+                    featured = Featured(Post = post, box = featuredBox, imageURL = imageURL)
+                    featured.save()
+
+
                 if 'categories' in request.POST:
                     categories = request.POST.getlist('categories')
                     for category in categories:
@@ -524,6 +538,6 @@ def save(request, form, image, saveType, url = None):
                 return None
         
         else:
-            return "Something is amiss..."
+            return "Something is amiss...", None
     
     

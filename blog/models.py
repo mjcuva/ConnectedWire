@@ -52,3 +52,17 @@ class Page(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+
+class Featured(models.Model):
+	Post = models.ForeignKey(Post, null = True, blank = True)
+	box = models.IntegerField()
+	imageURL = models.TextField()
+
+	def __unicode__(self):
+		return self.Post.title
+
+
+
+
+

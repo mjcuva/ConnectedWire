@@ -196,7 +196,7 @@ def category(request, category):
     for i in catList:
         posts.append(i.Post)
     
-    pages = Page.objects.all().order_by("id")
+    pages = Page.objects.all().order_by("-id")
     
 
     

@@ -46,24 +46,12 @@ under the License. -->
 			</div>
 		{% endif %}
 		{% if post.image %}
-			<img src="{{post.image}}">
+			<img class="postImage" src="{{post.image}}">
 		{% endif %}
 		<div>{{post.content|safe}}</div>
 
 		{% if forloop.counter == 2%}
-		<div id="ad">
-			<script type="text/javascript"><!--
-				google_ad_client = "ca-pub-9715491998171760";
-				/* Between Posts */
-				google_ad_slot = "6956848914";
-				google_ad_width = 468;
-				google_ad_height = 60;
-				//-->
-				</script>
-				<script type="text/javascript"
-				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
-		</div>
+		
 		{% endif %}
 	{% endfor %}
 

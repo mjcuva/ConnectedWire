@@ -41,10 +41,10 @@ def getPostCount():
 	return postcount
 
 def daysSince():
-	last = Post.objects.all().order_by('-published')[0].published.replace(tzinfo=None).day
-	now = datetime.datetime.now().day
+	last = Post.objects.all().order_by('-published')[0].published.replace(tzinfo=None)
+	now = datetime.datetime.now()
 	delta = now - last
-	return delta
+	return delta.days
 
 def suggestion():
 	page = urllib2.urlopen('http://techmeme.com').read()

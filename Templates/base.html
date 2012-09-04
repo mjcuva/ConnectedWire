@@ -103,7 +103,11 @@ under the License. -->
 			{% endif %}
 			{% endblock %}
 
-			<div id="logoBar">
+			
+
+			<div id="top">
+
+				<div id="logoBar">
 			
 				<div id="logo"><a href="/"><img src="/static/images/logo.png"></a><!-- <span id = "name">By Marc Cuva</span> --></div>
 
@@ -115,47 +119,7 @@ under the License. -->
 				</div>
 			</div>
 
-			<div id="top">
-				
-				<div id="page">
-					
-					
-
-				{% block content %}
-				<div id="hero">
-						
-					<a href="{{featured.0.Post.link}}"><div id="feature1"><div class="{{cats.0}}"><span id="featuredTitle">{{featured.0.Post.title|safe}}</span></div>
-
-						<img src="{{featured.0.imageURL}}">
-					</div></a>
-
-					<a href="{{featured.1.Post.link}}"><div id="feature2"><div class="{{cats.1}}"><span>{{featured.1.Post.title|safe}}</span></div>
-						<img src="{{featured.1.imageURL}}">
-					</div></a>
-
-					<a href="{{featured.2.Post.link}}"><div id="feature3"><div class="{{cats.2}}"><span>{{featured.2.Post.title|safe}}</span></div>
-						<img src="{{featured.2.imageURL}}">
-
-					</div></a>
-
-					<a href="{{featured.3.Post.link}}"><div id="feature4"><div class="{{cats.3}}"><span>{{featured.3.Post.title|safe}}</span></div>
-						<img src="{{featured.3.imageURL}}">
-
-					</div></a>
-
-
-				</div>
-				{% include 'index.html' %}
-				
-				{% endblock %}
-				
-				<div id='disqus'>{% block disqus %} {% endblock %}</div>
-				<div id='paginator'>{% block pagination %}{% endblock %}</div>
-				
-				
-				</div>
-
-			<div id="leftBar">
+					<div id="leftBar">
 				<div class="sidebarLeft" id="upperLeft">
 					<a href="/">Home</a>
 					<a href="/search">Search</a>
@@ -181,8 +145,9 @@ under the License. -->
 				</div>
 			</div>
 
-				<div id="rightBar">
 
+			<div id="rightBar">
+				<div id="rightWrapper">
 
 					<div class="sidebarRight" id="catList">
 						<h3>Categories</h3>
@@ -205,8 +170,71 @@ under the License. -->
 						<a href="/2011"><div id="twentyeleven">2011</div></a>
 					</div>
 
+				</div>
+
 
 				</div>
+
+				
+				
+				<div id="page">
+					
+					
+
+				{% block content %}
+				{% if request.path == '/'%}
+				<div id="hero">
+						
+					<a href="{{featured.0.Post.link}}"><div id="feature1"><div class="{{cats.0}}"><span id="featuredTitle">{{featured.0.Post.title|safe}}</span></div>
+
+						<img src="{{featured.0.imageURL}}">
+					</div></a>
+
+					<a href="{{featured.1.Post.link}}"><div id="feature2"><div class="{{cats.1}}"><span>{{featured.1.Post.title|safe}}</span></div>
+						<img src="{{featured.1.imageURL}}">
+					</div></a>
+
+					<a href="{{featured.2.Post.link}}"><div id="feature3"><div class="{{cats.2}}"><span>{{featured.2.Post.title|safe}}</span></div>
+						<img src="{{featured.2.imageURL}}">
+
+					</div></a>
+
+					<a href="{{featured.3.Post.link}}"><div id="feature4"><div class="{{cats.3}}"><span>{{featured.3.Post.title|safe}}</span></div>
+						<img src="{{featured.3.imageURL}}">
+
+					</div></a>
+
+
+				</div>
+
+				{% endif %}
+
+				<div id="ad">
+					<script type="text/javascript"><!--
+						google_ad_client = "ca-pub-9715491998171760";
+						/* Header */
+						google_ad_slot = "4391070369";
+						google_ad_width = 728;
+						google_ad_height = 90;
+						//-->
+						</script>
+						<script type="text/javascript"
+						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+				</div>
+				{% include 'index.html' %}
+				
+				{% endblock %}
+				
+				<div id='disqus'>{% block disqus %} {% endblock %}</div>
+				<div id='paginator'>{% block pagination %}{% endblock %}</div>
+				
+				
+				</div>
+
+
+
+		
 			</div>
 
 

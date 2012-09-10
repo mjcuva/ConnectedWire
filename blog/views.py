@@ -124,13 +124,16 @@ def index(request):
             featured.append(Featured.objects.filter(box = i).order_by('-id')[0])
             feature = Featured.objects.filter(box = i).order_by('-id')[0]
             categories = Categories.objects.filter(Post__title=feature.Post.title)
+            added = False
             for i in categories:
                 if not str(i) == 'News':
                     cats.append(i)
                     added = True
+                    break
+                if added:
+                    break
             if not added:
                 cats.append('News')
-            added = False
 
         except IndexError:
             pass

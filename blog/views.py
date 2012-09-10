@@ -474,6 +474,7 @@ def save(request, form, image, saveType, url = None):
             if saveType == "Post":
                 if url:
                     #If the post is being edited, delete the older version
+                    published = Post.objects.get(pk=url).published
                     Post.objects.get(pk=url).delete()
                     posts = Categories.objects.filter(Post__id = url)
                     for i in posts:
@@ -481,17 +482,19 @@ def save(request, form, image, saveType, url = None):
                     featured = Featured.objects.filter(Post__id = url)
                     if featured:
                         featured.delete()
-
-                #Create a post with the correct information
-                
-                published = datetime.datetime.now()
-                
+                else:
+               
+                    published = datetime.datetime.now()
+                    
                 month = published.month
                 
                 if month < 10:
                     newmonth = '0' + str(month)
                 else:
                     newmonth = str(month)
+
+                 #Create a post with the correct information
+                
                 
                 title = request.POST['title']
                 

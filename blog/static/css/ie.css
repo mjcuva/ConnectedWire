@@ -1,0 +1,115 @@
+
+#hero .News {
+/*	background-color: rgba(255, 0, 0, .5);*/
+
+	background: transparent url('/static/images/news.png');
+	z-index: 100;
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	
+}
+
+#hero .News:hover{
+/*	background-color: rgba(78, 8, 10, .7);*/
+	background: transparent url('/static/images/newsHover.png');
+	
+
+}
+
+#hero .Google {
+	/*background-color: rgba(30, 191, 14, .7);*/
+	background: transparent url('/static/images/google.png');
+	z-index: 100;
+	position: absolute;
+	overflow: hidden;
+	width: inherit;
+	height: inherit;
+	
+}
+
+#hero .Google:hover{
+	/*background-color: rgba(13, 91, 6, .7);*/
+	background: transparent url('/static/images/googleHover.png')
+}
+
+#hero .Apple {
+	/*background-color: rgba(56,101,164, .7);*/
+	background: transparent url('/static/images/apple.png');
+	z-index: 100;
+	position: absolute;
+	overflow: hidden;
+	width: inherit;
+	height: inherit;
+	
+}
+
+#hero .Apple:hover{
+	/*background-color: rgba(30, 55, 91, .7);*/
+	background: transparent url('/static/images/appleHover.png')
+}
+
+#hero .Microsoft{
+	/*background-color: #c7cc1b;*/
+	background: transparent url('/static/images/microsft.png');
+	z-index: 100;
+	position: absolute;
+	overflow: hidden;
+	width: inherit;
+	height: inherit;
+	
+}
+
+#hero .Microsoft:hover{
+	/*background-color: rgba(105, 108, 15, .7);*/
+	background: transparent url('/static/images/microsftHover.png');
+}
+
+#hero .Rumor {
+	/*background-color: rgba(177, 75, 156, .7);*/	
+	background: transparent url('/static/images/rumor.png');
+	z-index: 100;
+	position: absolute;
+	overflow: hidden;
+	width: inherit;
+	height: inherit;
+	
+}
+
+#hero .Rumor:hover{
+	/*background-color: rgba(79, 33, 70, .7);*/
+	background: transparent url('/static/images/rumorHover.png');
+}
+
+#hero .Editorial{
+	/*background-color: rgba(220, 123, 34, .7);*/
+	background: transparent url('/static/images/editorial.png');
+	z-index: 100;
+	position: absolute;
+	overflow: hidden;
+	width: inherit;
+	height: inherit;
+	
+}
+
+#hero .Editorial:hover{
+	/*background-color: rgba(117, 65, 19, .7);*/
+	background: transparent url('/static/images/editorialHover.png');
+}
+
+#hero .Favorites{
+	/*background-color: rgba(51, 202, 211, .7);*/
+	background: transparent url('/static/images/favorites.png');
+	z-index: 100;
+	position: absolute;
+	overflow: hidden;
+	width: inherit;
+	height: inherit;
+	
+	display: inline;
+}
+
+#hero .Favorites:hover {
+	/*background-color: rgba(0, 45, 105, .7);*/
+	background: transparent url('/static/images/favoritesHover.png');
+}

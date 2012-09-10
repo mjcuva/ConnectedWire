@@ -119,10 +119,10 @@ def index(request):
     # Get featured posts
     featured = []
     cats = []
-    for i in range(1,5):
+    for i in range(0,4):
         try:
-            featured.append(Featured.objects.filter(box = i).order_by('-id')[0])
-            feature = Featured.objects.filter(box = i).order_by('-id')[0]
+            featured.append(Featured.objects.filter().order_by('-Post__published')[i])
+            feature = Featured.objects.filter().order_by('-Post__published')[i]
             categories = Categories.objects.filter(Post__title=feature.Post.title)
             added = False
             for i in categories:
@@ -512,12 +512,11 @@ def save(request, form, image, saveType, url = None):
                 post.save()
 
                     
-                featuredBox = request.POST['box']
 
-                if featuredBox != str(0):
+                if request.POST['featured']:
                     if not imageURL:
                         return "You need an image", post
-                    featured = Featured(Post = post, box = featuredBox, imageURL = imageURL)
+                    featured = Featured(Post = post, box = 1, imageURL = imageURL)
                     featured.save()
 
 

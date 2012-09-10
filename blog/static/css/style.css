@@ -655,16 +655,20 @@ INPUT.hintTextboxActive { color: #000 !important; }
 }*/
 
 
-#hero img{
+/*#hero img{
 	margin-top: 0px !important;
-	display: inline;
+	display: block;
 	float:left;
 	margin: auto;
 	margin-left: -10%;
 	margin-top: -10% !important;
 	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin: 0 auto;
+	text-align: center;
 
-}
+}*/
 
 #hero div span{
 	position: absolute;
@@ -694,7 +698,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 
 
 
-#hero #feature2 {
+#hero #feature3 {
 	position: absolute;
 	left: 530px;
 	width: 330px;
@@ -704,7 +708,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	float: left;
 }
 
-#hero #feature3 {
+#hero #feature4 {
 	position: absolute;
 	top: 200px;
 	height: 200px;
@@ -714,7 +718,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	float:left;
 }
 
-#hero #feature4 {
+#hero #feature2 {
 	position: absolute;
 	left: 330px;
 	width: 530px;

@@ -174,22 +174,22 @@
 				{% if request.path == '/'%}
 				<div id="hero">
 						
-					<a href="{{featured.0.Post.link}}"><div id="feature1"><div class="{{cats.0}}"><span id="featuredTitle">{{featured.0.Post.title|safe}}</span></div>
+					<a href="{{featured.0.Post.link}}"><div id="feature1" style="background: url({{featured.0.imageURL}}) center center no-repeat;"><div class="{{cats.0}}"><span id="featuredTitle">{{featured.0.Post.title|safe}}</span></div>
 
-						<img src="{{featured.0.imageURL}}">
+						<!-- <img src="{{featured.0.imageURL}}"> -->
 					</div></a>
 
-					<a href="{{featured.1.Post.link}}"><div id="feature2"><div class="{{cats.1}}"><span>{{featured.1.Post.title|safe}}</span></div>
-						<img src="{{featured.1.imageURL}}">
+					<a href="{{featured.1.Post.link}}"><div id="feature2" style="background: url({{featured.1.imageURL}}) center center no-repeat;"><div class="{{cats.1}}"><span>{{featured.1.Post.title|safe}}</span></div>
+						<!-- <img src="{{featured.1.imageURL}}"> -->
 					</div></a>
 
-					<a href="{{featured.2.Post.link}}"><div id="feature3"><div class="{{cats.2}}"><span>{{featured.2.Post.title|safe}}</span></div>
-						<img src="{{featured.2.imageURL}}">
+					<a href="{{featured.2.Post.link}}"><div id="feature3" style="background: url({{featured.2.imageURL}}) center center no-repeat;" ><div class="{{cats.2}}"><span>{{featured.2.Post.title|safe}}</span></div>
+						<!-- <img src="{{featured.2.imageURL}}"> -->
 
 					</div></a>
 
-					<a href="{{featured.3.Post.link}}"><div id="feature4"><div class="{{cats.3}}"><span>{{featured.3.Post.title|safe}}</span></div>
-						<img src="{{featured.3.imageURL}}">
+					<a href="{{featured.3.Post.link}}"><div id="feature4" style="background: url({{featured.3.imageURL}}) center center no-repeat;" ><div class="{{cats.3}}"><span>{{featured.3.Post.title|safe}}</span></div>
+						<!-- <img src="{{featured.3.imageURL}}"> -->
 
 					</div></a>
 

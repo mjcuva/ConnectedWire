@@ -44,7 +44,7 @@ def daysSince():
 	last = Post.objects.all().order_by('-published')[0].published.replace(tzinfo=None)
 	now = datetime.datetime.now()
 	delta = now - last
-	return delta.days
+	return delta.days + 1
 
 def suggestion():
 	page = urllib2.urlopen('http://techmeme.com').read()

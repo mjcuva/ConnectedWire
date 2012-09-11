@@ -463,9 +463,11 @@ def save(request, form, image, saveType, url = None):
             #Else save the image, and create a url
             if store.exists(image.name):
                 imageURL = '/images/' + image.name
+                featuredImage = imageURL
             else:
                 storedImage = store.save(image.name, image)
                 imageURL = "/images/" + storedImage
+                featuredImage = imageURL
         else:
             imageURL = None
         
@@ -505,6 +507,12 @@ def save(request, form, image, saveType, url = None):
                 linkTitle = ''.join(ch for ch in linkTitle if ch not in exclude)
                 
                 link = str(published.year) + '/' + newmonth + '/' + linkTitle + '/'
+
+                if not 'imageInPost' in request.POST:
+                    imageURL = None
+                else:
+                    if not imageURL:
+                        return "You didn't upload an image.", None
                 
                 post = Post(title = request.POST['title'],
                             sourceUrl = request.POST['sourceUrl'],
@@ -516,10 +524,10 @@ def save(request, form, image, saveType, url = None):
 
                     
 
-                if request.POST['featured']:
-                    if not imageURL:
+                if 'featured' in request.POST:
+                    if not featuredImage:
                         return "You need an image", post
-                    featured = Featured(Post = post, box = 1, imageURL = imageURL)
+                    featured = Featured(Post = post, box = 1, imageURL = featuredImage)
                     featured.save()
 
 

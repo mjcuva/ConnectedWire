@@ -15,7 +15,7 @@
 		<link href="/static/css/style.css" rel="stylesheet" type="text/css">
 
 		<link href='http://fonts.googleapis.com/css?family=Headland+One' rel='stylesheet' type='text/css'>
-		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 		{% block style %}
@@ -107,7 +107,7 @@
 					<a href="https://plus.google.com/u/0/103563826804590353482/posts" target="_blank"><img src="/static/images/gplus.png"></a>
 				</div>
 			</div>
-
+				
 					<div id="leftBar">
 				<div class="sidebarLeft" id="upperLeft">
 					<a href="/">Home</a>
@@ -135,68 +135,41 @@
 			</div>
 
 
-			<div id="rightBar">
-				<div id="rightWrapper">
-
-					<div class="sidebarRight" id="catList">
-						<h3>Categories</h3>
-					</div>
-
-
-					<!-- MailChimp -->
-					<div id="mc_embed_signup" class="sidebarRight">
-						<form action="http://theconnectedwire.us5.list-manage.com/subscribe/post?u=b42d4e952702aa0a6495509e3&amp;id=093bb83a9f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-							<label for="mce-EMAIL">Subscribe for updates!</label>
-							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-							<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-						</form>
-					</div>
-
-
-					<div class="sidebarRight" id="archive">
-						<h3>Archive</h3>
-						<a href="/2012"><div id="twentytwelve">2012</div></a>
-						<a href="/2011"><div id="twentyeleven">2011</div></a>
-					</div>
-
-				</div>
-
-
-				</div>
+			
 
 				
-				
+				<div id='test'>
 				<div id="page">
 					
 					
 
-				{% block content %}
-				{% if request.path == '/'%}
-				<div id="hero">
-						
-					<a href="{{featured.0.Post.link}}"><div id="feature1" style="background: url({{featured.0.imageURL}}) center center no-repeat;"><div class="{{cats.0}}"><span id="featuredTitle">{{featured.0.Post.title|safe}}</span></div>
+					{% block content %}
+					{% if request.path == '/'%}
+					<div id="hero">
+							
+						<a href="{{featured.0.Post.link}}"><div id="feature1" style="background: url({{featured.0.imageURL}}) center center no-repeat;"><div class="{{cats.0}}"><span id="featuredTitle">{{featured.0.Post.title|safe}}</span></div>
 
-						<!-- <img src="{{featured.0.imageURL}}"> -->
-					</div></a>
+							<!-- <img src="{{featured.0.imageURL}}"> -->
+						</div></a>
 
-					<a href="{{featured.1.Post.link}}"><div id="feature2" style="background: url({{featured.1.imageURL}}) center center no-repeat;"><div class="{{cats.1}}"><span>{{featured.1.Post.title|safe}}</span></div>
-						<!-- <img src="{{featured.1.imageURL}}"> -->
-					</div></a>
+						<a href="{{featured.1.Post.link}}"><div id="feature2" style="background: url({{featured.1.imageURL}}) center center no-repeat;"><div class="{{cats.1}}"><span>{{featured.1.Post.title|safe}}</span></div>
+							<!-- <img src="{{featured.1.imageURL}}"> -->
+						</div></a>
 
-					<a href="{{featured.2.Post.link}}"><div id="feature3" style="background: url({{featured.2.imageURL}}) center center no-repeat;" ><div class="{{cats.2}}"><span>{{featured.2.Post.title|safe}}</span></div>
-						<!-- <img src="{{featured.2.imageURL}}"> -->
+						<a href="{{featured.2.Post.link}}"><div id="feature3" style="background: url({{featured.2.imageURL}}) center center no-repeat;" ><div class="{{cats.2}}"><span>{{featured.2.Post.title|safe}}</span></div>
+							<!-- <img src="{{featured.2.imageURL}}"> -->
 
-					</div></a>
+						</div></a>
 
-					<a href="{{featured.3.Post.link}}"><div id="feature4" style="background: url({{featured.3.imageURL}}) center center no-repeat;" ><div class="{{cats.3}}"><span>{{featured.3.Post.title|safe}}</span></div>
-						<!-- <img src="{{featured.3.imageURL}}"> -->
+						<a href="{{featured.3.Post.link}}"><div id="feature4" style="background: url({{featured.3.imageURL}}) center center no-repeat;" ><div class="{{cats.3}}"><span>{{featured.3.Post.title|safe}}</span></div>
+							<!-- <img src="{{featured.3.imageURL}}"> -->
 
-					</div></a>
+						</div></a>
 
 
-				</div>
+					</div>
 
-				{% endif %}
+					{% endif %}
 
 				<div id="ad">
 					<script type="text/javascript"><!--
@@ -220,6 +193,39 @@
 				
 				
 				</div>
+
+
+				<div id="wrapper">
+				<div id="rightBar">
+
+					<div class="sidebarRight" id="catList">
+						<h3>Categories</h3>
+					</div>
+
+
+					<!-- MailChimp -->
+					<div id="mc_embed_signup" class="sidebarRight">
+						<form action="http://theconnectedwire.us5.list-manage.com/subscribe/post?u=b42d4e952702aa0a6495509e3&amp;id=093bb83a9f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<label for="mce-EMAIL">Subscribe for updates!</label>
+							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+							<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+						</form>
+					</div>
+
+
+					<div class="sidebarRight" id="archive">
+						<h3>Archive</h3>
+						<a href="/2012"><div id="twentytwelve">2012</div></a>
+						<a href="/2011"><div id="twentyeleven">2011</div></a>
+					</div>
+
+				</div>
+			</div>
+
+
+				</div>
+
+
 
 
 

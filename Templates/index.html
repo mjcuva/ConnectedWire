@@ -25,7 +25,7 @@
 			</div>
 		{% else %}
 			<div class="otherinfo">
-				<a href="/About">By Marc Cuva</a> | <span class="date">{{post.published}}</span> | <a href="/{{post.link}}">Permalink</a>
+				<span class="mobileHide"><a class="author" href="/About">By Marc Cuva</a> | <span class="date">{{post.published}}</span> |</span> <a href="/{{post.link}}">Permalink</a>
 			</div>
 		{% endif %}
 		{% if post.image %}

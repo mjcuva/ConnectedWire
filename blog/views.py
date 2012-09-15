@@ -81,7 +81,7 @@ def checkMobile(request):
         b = reg_b.search(user_agent)
         v = reg_v.search(user_agent[0:4])
         if b or v:
-            return True
+            return False #IMPORTANT -- CHANGED FOR STYLESHEET TESTING
         else:
             return False
 

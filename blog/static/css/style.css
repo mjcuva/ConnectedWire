@@ -19,6 +19,7 @@ div {
 
 h1 {
 	font-size: 1.96em;
+	line-height: 1.1em;
 }
 
 .postImage {
@@ -27,7 +28,12 @@ h1 {
 }
 
 .title {
-	line-height: 100%
+	line-height: 110%;
+	margin-bottom: -1px;
+}
+
+hr {
+	margin-bottom: 0px;
 }
 
 body, html {
@@ -280,10 +286,7 @@ a:hover {
 	 
  }
  
- .title {
-	 margin-bottom: -10px;
 
- }
  
  .edit {
 	 color: black !important;

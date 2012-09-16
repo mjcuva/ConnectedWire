@@ -1,6 +1,6 @@
 body{
 	position: relative;
-	font-family: Helvetica, Arial, serif;
+	font-family: Georgia, sans-serif;
 	font-size: 100%;
 	max-width: 1200px;
 	min-width: 1075px;
@@ -14,7 +14,11 @@ body{
 }
 
 div {
-	line-height: 120%;
+	line-height: 1.48em;
+}
+
+h1 {
+	font-size: 1.96em;
 }
 
 .postImage {
@@ -229,6 +233,12 @@ a:hover {
 
  }
  
+
+ .post {
+ 	margin-bottom: 30px;
+ 	padding-bottom: 30px;
+ 	border-bottom: 1px dotted black;
+ }
  
 /*  h1 {
 	 margin-bottom: 0px;

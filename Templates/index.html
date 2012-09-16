@@ -8,34 +8,37 @@
 {% paginate 5 posts %}
 
 {% for post in posts %}
+
+		<div class="post">
 					
-		{% if post.sourceUrl %}
-			<a href="{{post.sourceUrl}}" target="_blank"><h1  class = "title">{{post.title|safe}}</h1></a>
-		{% else %}
-			<h1 class = "title">{{post.title|safe}}</h1>
-		{% endif %}
+			{% if post.sourceUrl %}
+				<a href="{{post.sourceUrl}}" target="_blank"><h1  class = "title">{{post.title|safe}}</h1></a>
+			{% else %}
+				<h1 class = "title">{{post.title|safe}}</h1>
+			{% endif %}
 
-			<hr>
-			{% for cat in post.title|getCat %}
-			<span class='category {{cat}}'><a class = "catlink" href="/category/{{cat}}">{{cat}}</a></span>
-			{% endfor %}
-		{% if username %}
-			<div class="otherinfo">
-				<a class = "edit" href="edit/{{post.id}}">Edit</a> | <span class="date">{{post.published}}</span> | <a href="/{{post.link}}">Permalink</a>
-			</div>
-		{% else %}
-			<div class="otherinfo">
-				<span class="mobileHide"><a class="author" href="/About">By Marc Cuva</a> | <span class="date">{{post.published}}</span> |</span> <a href="/{{post.link}}">Permalink</a>
-			</div>
-		{% endif %}
-		{% if post.image %}
-			<img class="postImage" src="{{post.image}}">
-		{% endif %}
-		<div>{{post.content|safe}}</div>
+				<hr>
+				{% for cat in post.title|getCat %}
+				<span class='category {{cat}}'><a class = "catlink" href="/category/{{cat}}">{{cat}}</a></span>
+				{% endfor %}
+			{% if username %}
+				<div class="otherinfo">
+					<a class = "edit" href="edit/{{post.id}}">Edit</a> | <span class="date">{{post.published}}</span> | <a href="/{{post.link}}">Permalink</a>
+				</div>
+			{% else %}
+				<div class="otherinfo">
+					<span class="mobileHide"><a class="author" href="/About">By Marc Cuva</a> | <span class="date">{{post.published}}</span> |</span> <a href="/{{post.link}}">Permalink</a>
+				</div>
+			{% endif %}
+			{% if post.image %}
+				<img class="postImage" src="{{post.image}}">
+			{% endif %}
+			<div>{{post.content|safe}}</div>
 
-		{% if forloop.counter == 2%}
-		
-		{% endif %}
+			{% if forloop.counter == 2%}
+			
+			{% endif %}
+		</div>
 	{% endfor %}
 
 	{% show_more " "%}

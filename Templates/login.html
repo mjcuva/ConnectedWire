@@ -12,7 +12,7 @@
 	<body>
 		
 		<div id="loginBox">
-			<form action = "/login/" method = "post"> {% csrf_token %}
+			<form action = "/login?next={{ redirect_to }}" method = "post"> {% csrf_token %}
 			
 				<h1>Login</h1>
 				<table>

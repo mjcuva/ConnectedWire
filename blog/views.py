@@ -241,6 +241,7 @@ def signup(request):
 #Logs in a user
 def login(request):
     error = ""
+    redirect_to = request.REQUEST.get('next', '')
     if request.method == "POST":
         form = blogForms.LoginForm(request.POST)
         if form.is_valid():
@@ -252,7 +253,10 @@ def login(request):
                     #Sets cookie if login is valid
                     uid = u.id
                     val = util.make_secure_val(str(uid))
-                    response = HttpResponseRedirect('/')
+                    # if request.REQUEST.get('next', ''):
+                    response = HttpResponseRedirect(redirect_to)
+                    # else:
+                    #     response = HttpResponseRedirect('/')
                     response.set_cookie("user",val)
                     return response
             #If the user doesn't exist
@@ -264,7 +268,7 @@ def login(request):
             error = "Invalid Login"
     else:
         form = blogForms.LoginForm()
-    return render_to_response("login.html", {"form": form, "error": error}, context_instance=RequestContext(request))
+    return render_to_response("login.html", {"form": form, "error": error, "redirect_to": redirect_to}, context_instance=RequestContext(request))
 
 #Logs out the current user
 def logout(request):

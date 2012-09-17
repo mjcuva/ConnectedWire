@@ -8,10 +8,9 @@ Fixes:
 Additions:
 	- Caching
 	- Preview before post
-	- More responsive design -- Resize based on window size
 
 Crazy Ideas:
 	- Apps
 	- Change search
 	- Deploying Mechanism
-	- New posting system
+	- New posting system (Upload text file)

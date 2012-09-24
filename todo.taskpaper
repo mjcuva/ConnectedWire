@@ -3,7 +3,6 @@ Fixes:
 	- Improve comments
 	- Clean code
 	- Fix IE8 box shadow and corners
-	- Dashboard -> Login -> Dashboard redirect
 	- Redesign new post page
 Additions:
 	- Caching

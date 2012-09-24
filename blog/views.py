@@ -126,19 +126,26 @@ def index(request):
             categories = Categories.objects.filter(Post__title=feature.Post.title)
             added = False
             for i in categories:
-                if not str(i) == 'News':
+                if not (str(i) == 'News' or str(i) == 'Editorial'):
                     cats.append(i)
                     added = True
                     break
                 if added:
                     break
+            done = False
             if not added:
-                cats.append('News')
+                for i in categories:
+                    if str(i) == 'Editorial':
+                        cats.append('Editorial')
+                        done = True
+
+                if not done:
+                    cats.append('News')
 
         except IndexError:
             pass
 
-    
+    # dfs
     
     # Gets all of the pages
     pages = Page.objects.all().order_by("id")

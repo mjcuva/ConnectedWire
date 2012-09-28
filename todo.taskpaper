@@ -4,6 +4,7 @@ Fixes:
 	- Clean code
 	- Fix IE8 box shadow and corners
 	- Redesign new post page
+	- Remove bootstrap and add own nav
 Additions:
 	- Caching
 	- Preview before post

@@ -261,7 +261,10 @@ def login(request):
                     uid = u.id
                     val = util.make_secure_val(str(uid))
                     # if request.REQUEST.get('next', ''):
-                    response = HttpResponseRedirect(redirect_to)
+                    if redirect_to:
+                        response = HttpResponseRedirect(redirect_to)
+                    else:
+                        response = HttpResponseRedirect('/')
                     # else:
                     #     response = HttpResponseRedirect('/')
                     response.set_cookie("user",val)

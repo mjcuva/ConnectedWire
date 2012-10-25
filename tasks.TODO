@@ -1,10 +1,12 @@
 Fixes:
  ☐ Improve comments
  ☐ Clean code
- ☐ Fix IE8 box shadow and corners
+ ✔ Fix IE8 box shadow and corners @done (12-10-25 10:21) (Removed IE8 Support Entirely)
  ☐ Redesign new post page
  ☐ Remove bootstrap and add own nav
  ☐ Numbers in image title cause error
+ ☐ Change Mobile (Titles only? Better Padding)
+ ☐ Fix IE error page
 
 Additions:
  ☐ Caching

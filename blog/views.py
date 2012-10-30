@@ -92,10 +92,7 @@ def index(request):
     # and sets the template accordingly
     if request.is_ajax():
         template = page_template
-        mobileTemplate = mobilePage_template
     
-    # Gets the total wordcount
-    count = stats.getWordCount()
 
     # Get featured posts
     featured = []
@@ -135,7 +132,7 @@ def index(request):
     
     # If on IE, show message asking user to use another broswer
     if not ie:
-        return render_to_response(template, {"posts" : posts, "pages":pages, "username": username, "wordcount": count, "featured": featured, "cats":cats}, context_instance=RequestContext(request))
+        return render_to_response(template, {"posts" : posts, "pages":pages, "username": username, "featured": featured, "cats":cats}, context_instance=RequestContext(request))
     else:
         return render_to_response('ie.html')
 
@@ -178,7 +175,7 @@ def category(request, category):
     
     if request.is_ajax():
         template = page_template
-        mobileTemplate = mobilePage_template
+    
     
     posts = []
     catList = Categories.objects.filter(category=category).order_by('-id')
@@ -270,17 +267,16 @@ def logout(request):
 # Loads the page for a particular permalink
 def permalink(request, url):
     
-    isMobile = checkMobile(request)
+    
     
     username = util.checkLoggedIn(request)
     post = Post.objects.filter(link=url)
     
     if post:
         pages = Page.objects.all().order_by("id")
-        if not isMobile:
-            return render_to_response("permalink.html", {"posts": post, "pages":pages, "username":username})
-        else:
-            return render_to_response("mobile/permalink.html", {"posts":post})
+    
+        return render_to_response("permalink.html", {"posts": post, "pages":pages, "username":username})
+
     else:
         #If post doesn't exist, show a 404 page
         raise Http404
@@ -304,7 +300,7 @@ def newpost(request):
         else:
             image = None
         #saves post, returning an error if failed
-        error, post = save(request,  form, image, "Post")
+        error, post = save(request, form, image, "Post")
         if not error:
             if not settings.DEBUG:
                 tweet = post.title + " - " + "http://www.theconnectedwire.com/" + post.link

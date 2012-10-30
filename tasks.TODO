@@ -6,7 +6,7 @@ Fixes:
  ☐ Remove bootstrap and add own nav
  ☐ Numbers in image title cause error
  ☐ Change Mobile (Titles only? Better Padding)
- ☐ Fix IE error page
+ ☐ Improve IE error page
 
 Additions:
  ☐ Caching

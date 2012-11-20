@@ -62,6 +62,13 @@ class Featured(models.Model):
 	def __unicode__(self):
 		return self.Post.title
 
+class PocketKey(models.Model):
+	User = models.ForeignKey(User)
+	key = models.CharField(max_length = 100)
+
+class Todo(models.Model):
+	text = models.CharField(max_length = 500)
+
 
 
 

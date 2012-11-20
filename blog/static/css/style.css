@@ -1,6 +1,8 @@
 body{
 	position: relative;
 	font-family: Georgia, sans-serif;
+	/*font-family:HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;*/
+
 	font-size: 100%;
 	max-width: 1200px;
 	min-width: 1075px;
@@ -14,7 +16,7 @@ body{
 }
 
 div {
-	line-height: 1.48em;
+	line-height: 1.6em;
 }
 
 h1 {
@@ -824,7 +826,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 }
 
 #hero .Microsoft{
-	background-color: #c7cc1b;
+	background-color: rgba(199, 204, 27, 0.7);
 	/*background: transparent url('/static/images/microsft.png');*/
 	z-index: 100;
 	position: absolute;

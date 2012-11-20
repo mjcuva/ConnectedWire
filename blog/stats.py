@@ -29,9 +29,11 @@ def getWordCount():
 
 		wordcount += len(i.content.split(' '))
 
-	wordcount = format(wordcount, ",d")
+	wordcountInt = wordcount
 
-	return wordcount
+	wordcountString = format(wordcount, ",d")
+
+	return wordcountInt, wordcountString
 
 def getPostCount():
 	posts = Post.objects.all()

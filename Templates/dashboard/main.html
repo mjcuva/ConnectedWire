@@ -1,0 +1,76 @@
+{% extends 'dashboard/base.html' %}
+
+
+{% block main %}
+    
+<div id='left'>
+    
+    <div class="block" id="stats">
+        <div class='title'>
+            Stats
+        </div>
+        <div class='blockContent'>
+            <ul>
+                <li class='blockTitle'>You have written:</li>
+                <li><span id='wc'>{{wordCountString}}</span> words</li>
+                <li><span id='pc'>{{postCount}}</span> posts</li>
+                <li><span id='av'>{{average}}</span> words per post</li>
+            </ul> 
+        </div>
+    </div>
+    <div class="block" id='suggestion'>
+        <div class='title'>
+            Suggestion
+        </div>
+        <div class="blockContent">
+            <ul>    
+                <li>It has been <span id="ds">{{daysSince}}</span> days since you last wrote a post.</li>
+                <li>Why not write about <a id='sl' target='_blank' href="{{suggestionLink}}">{{suggestionTitle}}</a>?</li>
+            </ul>
+        </div>
+            
+    </div>
+        
+    <div class="block" id="todo">
+        <div class='title' id='todoTitle'>
+            <button id='addItem'>+</button>
+            <div id='titleText'>To-Do</div>
+            
+        </div>
+        <div class="blockContent" id='todoContent'>
+
+            {% for todoItem in todo %}
+            {% include 'dashboard/todo.html'%}
+            {% endfor %}
+            
+        </div>
+    </div>
+        
+    
+</div>
+    
+    
+
+
+
+	
+<div class="block" id="pocketItems">
+    <div class="title" id='pocketTitle'>
+    	Starred Articles
+    </div>
+
+    <div class="content">
+	
+    </div>
+</div>
+	
+
+
+
+{% endblock %}
+	
+{% block script %}
+	<script src='/static/dashboard/javascript/dash.js'></script>
+{% endblock %}
+
+	

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Dashboard</title>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="/static/css/dashboard/style.css">
+		
+		{% block style %}
+
+		{% endblock %}
+	</head>
+	<body>
+		<div id='sidebar'>
+			<ul id='sidebarList'>
+				<li class='sidebarTitle'>Hello, {{username}}</li>
+				<a href="/" class='sidebarLink' id='home'><li class='sidebarItem'>Home Page</li></a>
+				<a href="/dashboard" class='sidebarLink active' id='dashboard'><li class='sidebarItem'>Dashboard</li></a>
+				<a href="/newpost" class='sidebarLink' id='newpost'><li class='sidebarItem'>New Post</li></a>
+				<a href="/newpage" class='sidebarLink' id='newpage'><li class="sidebarItem">New Page</li></a>
+				<a href="/cpanel" class='sidebarLink'><li class='sidebarItem'>CPanel</li></a>
+				<a href="http://adsense.google.com" class='sidebarLink'><li class='sidebarItem'>Adsense</li></a>
+				<a href='http://analytics.google.com' class='sidebarLink'><li class='sidebarItem'>Analytics</li></a>
+			</ul>
+		</div>
+		<div id='main'>
+
+			{% block main %}
+
+			{% endblock %}
+
+		</div>
+
+		<br class='clear'>
+
+		<script type="text/javascript" src='/static/javascript/jquery.js'></script>
+		{% block script %}
+		{% endblock %}
+
+	</body>
+</html>

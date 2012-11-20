@@ -32,6 +32,13 @@ urlpatterns = patterns('',
     url(r'^import/?', 'blog.import.importer'),
     url(r'^feed/?', 'blog.feed.feedBurn'),
     url(r'^dashboard/?', 'blog.dashboard.dash'),
+    url(r'^pocket/?$', 'blog.pocket.authorize'),
+    url(r'^checkpocket/?$', 'blog.pocket.checkAuthorized'),
+    url(r'^pocket/approved/?$', 'blog.pocket.approved'),
+    url(r'^getarticles/?$', 'blog.pocket.getArticles'),
+    url(r'^todo/?$', 'blog.dashboard.getTodo'),
+    url(r'^addtodo/?$', 'blog.dashboard.addTodo'),
+    url(r'^deletetodo/?$', 'blog.dashboard.deleteTodo'),
     url(r'^(\D+)/?$', 'blog.views.page'),
     # url(r'^dbrequest.json$', 'blog.views.dbrequest')
     

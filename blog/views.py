@@ -67,7 +67,10 @@ import paths
 # Check if in debug mode
 from django.conf import settings
 
+# Output site in JSON
 import json
+
+import urllib2
 
 
 # Homepage
@@ -232,7 +235,7 @@ def signup(request):
                 #Gets a hashed value for the user to prevent anyone from setting a cookie and logging in
                 val = util.make_secure_val(str(uid))
                 response = HttpResponseRedirect('/')
-                response.set_cookie("user",val)
+                response.set_cookie("user",val, max_age=2629740)
                 return response
         
         else:
@@ -264,7 +267,7 @@ def login(request):
                         response = HttpResponseRedirect('/')
                     # else:
                     #     response = HttpResponseRedirect('/')
-                    response.set_cookie("user",val)
+                    response.set_cookie("user",val, max_age=2629740)
                     return response
             #If the user doesn't exist
             except ObjectDoesNotExist:
@@ -332,7 +335,7 @@ def newpost(request):
     
     else:
         form = blogForms.newPostForm()
-    return render_to_response("newpost.html", {"form":form, "error": error, "username": username, "action":"newpost"}, context_instance = RequestContext(request))
+    return render_to_response("dashboard/newpost.html", {"form":form, "error": error, "username": username, "action":"newpost"}, context_instance = RequestContext(request))
     
 
 def edit(request, url):
@@ -361,17 +364,36 @@ def edit(request, url):
             if not error:
                 return HttpResponseRedirect('/')
             else:
-                return render_to_response("newpost.html", {"form":form, "post":url, "error":error, "username":username, "edit":True, "action":url}, context_instance = RequestContext(request))
+                return render_to_response("dashboard/newpost.html", {"form":form, "post":url, "error":error, "username":username, "edit":True, "action":url}, context_instance = RequestContext(request))
         except ObjectDoesNotExist:
             raise Http404
     else:
         #Loads the post into the form, so it can be edited
         try:
+            # Makes sure post exists
             post = Post.objects.get(pk=url)
             url = str(url)
-            if post:
-                form = blogForms.newPostForm(initial = {'title':post.title, 'sourceUrl':post.sourceUrl, 'content':post.content})
-                return render_to_response("newpost.html", {"form":form, "post":url, "error":error, "username":username, "edit":True, "action":url}, context_instance = RequestContext(request))
+
+            if post:                
+                # Gets all categories for post
+                categories = Categories.objects.filter(Post__title=post.title)
+
+                # Gets if the post is featured
+                featured = Featured.objects.filter(Post__title = post.title)
+                if featured:
+                    isFeatued = True
+                else:
+                    isFeatued = False
+
+                # Checks if the image was included in post
+                if post.image:
+                    imageInPost = True
+                else:
+                    imageInPost = False
+
+                # Sets initial value
+                form = blogForms.newPostForm(initial = {'title':post.title, 'sourceUrl':post.sourceUrl, 'content':post.content, 'categories': categories, 'featured': isFeatued, 'imageInPost': imageInPost})
+                return render_to_response("dashboard/newpost.html", {"form":form, "post":url, "error":error, "username":username, "edit":True, "action":url}, context_instance = RequestContext(request))
             else:
                 raise Http404
         except ObjectDoesNotExist:
@@ -402,7 +424,7 @@ def pageEdit(request, url):
         if not error:
             return HttpResponseRedirect('/')
         else:
-            return render_to_response("newpage.html", {"form":form, "post":url, "error":error, "username":username, "edit":True, "action":url}, context_instance = RequestContext(request))
+            return render_to_response("dashboard/newpage.html", {"form":form, "post":url, "error":error, "username":username, "edit":True, "action":url}, context_instance = RequestContext(request))
     
     else:
         #Loads the page into the form, so it can be edited
@@ -410,8 +432,9 @@ def pageEdit(request, url):
             page = Page.objects.get(title=url)
             url = str(url)
             if page:
+
                 form = blogForms.newPageForm(initial = {'title':page.title, 'content':page.content})
-                return render_to_response("newpage.html", {"form":form, "error":error, "username":username, "edit":True, "action":url}, context_instance = RequestContext(request))
+                return render_to_response("dashboard/newpage.html", {"form":form, "error":error, "username":username, "edit":True, "action":url}, context_instance = RequestContext(request))
             else:
                 raise Http404
         except ObjectDoesNotExist:
@@ -454,7 +477,7 @@ def newpage(request):
     
     else:
         form = blogForms.newPageForm()
-    return render_to_response("newpage.html", {"form":form, "error": error, "username": username, "action":"newpage"}, context_instance = RequestContext(request))
+    return render_to_response("dashboard/newpage.html", {"form":form, "error": error, "username": username, "action":"newpage"}, context_instance = RequestContext(request))
 
 
 def search(request):
@@ -480,6 +503,7 @@ def save(request, form, image, saveType, url = None):
                 featuredImage = imageURL
         else:
             imageURL = None
+            featuredImage = None
         
         
         if form.is_valid():

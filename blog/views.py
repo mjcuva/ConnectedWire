@@ -67,9 +67,6 @@ import paths
 # Check if in debug mode
 from django.conf import settings
 
-# Output site in JSON
-import json
-
 import urllib2
 
 
@@ -140,24 +137,6 @@ def index(request):
         return render_to_response(template, {"posts" : posts, "pages":pages, "username": username, "featured": featured, "cats":cats}, context_instance=RequestContext(request))
     else:
         return render_to_response('ie.html')
-
-def indexJson(request, posts):
-    JSON = []
-
-
-
-    if not posts:
-        posts = 0
-    else:
-        posts = int(posts)
-
-    posts = Post.objects.all().order_by('-published')[posts:posts+30]
-
-    for i in posts:
-        jsonAddition = {'title': i.title, 'content': i.content, 'image': i.image, 'source': i.sourceUrl, 'permalink': i.link}
-        JSON.append(jsonAddition)
-
-    return HttpResponse(json.dumps(JSON), mimetype="application/json")
 
 
 

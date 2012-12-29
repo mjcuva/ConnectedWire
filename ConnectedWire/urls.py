@@ -38,13 +38,14 @@ urlpatterns = patterns('',
     url(r'^getarticles/?$', 'blog.pocket.getArticles'),
     url(r'^addtodo/?$', 'blog.dashboard.addTodo'),
     url(r'^deletetodo/?$', 'blog.dashboard.deleteTodo'),
+    url(r'^podcast/rss?$', 'blog.podcast.generateRSS'),
+    url(r'^newepisode?$', 'blog.podcast.addEpisode'),
     url(r'^(\D+)/?$', 'blog.views.page'),
     # url(r'^dbrequest.json$', 'blog.views.dbrequest')
     
 )
 
-
-if settings.DEBUG:
-    urlpatterns += patterns('',
-        (r'^images/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-    )
+urlpatterns += patterns('',
+    (r'^images/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    # (r'^podcasts/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.PODCAST_ROOT}),
+)

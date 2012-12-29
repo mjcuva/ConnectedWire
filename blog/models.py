@@ -69,6 +69,12 @@ class PocketKey(models.Model):
 class Todo(models.Model):
 	text = models.CharField(max_length = 500)
 
+class Podcast(models.Model):
+	title = models.CharField(max_length = 100)
+	showNotes = models.TextField()
+	link = models.CharField(max_length = 100)
+	length = models.CharField(max_length = 100)
+	date = models.DateTimeField()
 
 
 

@@ -31,7 +31,9 @@
 				</div>
 			{% endif %}
 			{% if post.image %}
-				<img class="postImage" src="{{post.image}}">
+				<div class='imageWrapper'>
+					<img class="postImage" src="{{post.image}}">
+				</div>
 			{% endif %}
 			<div>{{post.content|safe}}</div>
 

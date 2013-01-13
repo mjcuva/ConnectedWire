@@ -35,7 +35,7 @@ h1 {
 }
 
 hr {
-	margin-bottom: 0px;
+	margin-bottom: -1px;
 }
 
 body, html {
@@ -77,8 +77,8 @@ a:hover {
 	position: relative;
 	display: block;
 	margin: 0 auto;
-	/*background-color: rgba(245,245,220, .5);*/
-	background-image: url('/static/images/back2.png');
+	background-color: rgba(245,245,220, .5);
+	/*background-image: url('/static/images/back2.png');*/
 	padding: 10px 24px 10px 30px;
 	margin-top: 30px;
 	padding-bottom: 100px !important;
@@ -94,7 +94,7 @@ a:hover {
 
 }
 
-#test {
+#right {
 	float: right;
 	width: 87.4161074%;
 }
@@ -687,7 +687,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 
 
 #hero {
-	width: 102.5%;
+	width: 106.8%;
 	height: 400px;
 	position: relative;
 	margin-left: -30px;
@@ -744,7 +744,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 
 #hero #feature1 {
 	position: absolute;
-	width: 64.6341463%;
+	width: 59.7560976%;
 	height: 200px;
 	background-color: blue;
 	overflow: hidden;
@@ -754,7 +754,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 
 #hero #feature4 {
 	position: absolute;
-	left: 64.6341463%;
+	left: 59.7560976%;
 	width: 40.2439024%;
 	height: 200px;
 	background-color: green;
@@ -775,22 +775,12 @@ INPUT.hintTextboxActive { color: #000 !important; }
 #hero #feature2 {
 	position: absolute;
 	left: 40.2439024%;
-	width: 64.6341463%;
+	width: 59.7560976%;
 	top: 200px;
 	height: 200px;
 	background-color: purple;
 	overflow: hidden;
 }
-
-/*#hero #feature5 {
-	position: absolute;
-	left: 300px;
-	top: 200px;
-	width: 500px;
-	height: 200px;
-	background-color: red;
-	overflow: hidden;
-}*/
 
 #hero .News {
 	background-color: rgba(255, 0, 0, .5);
@@ -907,6 +897,17 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	/*background: transparent url('/static/images/favoritesHover.png');*/
 }
 
+.audio{
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.podcastDownload {
+	width: 100px !important;
+	margin-top: 10px !important;
+}
+
 
 @media screen and (max-width: 1075px){
 	.sidebarLeft, .sidebarRight{
@@ -918,7 +919,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 		min-width: 100px;
 	}
 
-	#test {
+	#right {
 		float: left;
 		width: 100%;
 		min-width: 100px;	

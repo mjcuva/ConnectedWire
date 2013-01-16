@@ -16,7 +16,7 @@
 		{% block style %}
 		{% endblock %}
 
-		<title>The Connected Wire</title>
+		{% block title %}<title>The Connected Wire</title>{% endblock %}
 		
 		<!-- Disqus -->
 		<script type="text/javascript">
@@ -43,7 +43,7 @@
         })();
         </script>
 
-        
+
 
         <!-- Google Analytics -->
         <script type="text/javascript">
@@ -64,34 +64,34 @@
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         {% if username %}
         <style type="text/css">
-        
+
         #logoBar{
         	margin-top: 20px;
         }
 
         </style>
         {% endif %}
-        
+
 
     </head>
 
 
     <body>
 
-    	
+
     	{% block user %}
     	{% if username %}
     	<div id="header"><a href="/">Hello, {{username}}</a> | <a href="/dashboard">Dashboard <a> | <a href="/logout">Logout</a></div>
-    	
+
     	{% endif %}
     	{% endblock %}
 
-    	
+
 
     	<div id="top">
 
     		<div id="logoBar">
-    			
+
     			<div id="logo"><a href="/"><img src="/static/images/logo.png"></a><!-- <span id = "name">By Marc Cuva</span> --></div>
 
     			<div id="socialIcons">
@@ -101,16 +101,18 @@
     				<a href="https://plus.google.com/u/0/103563826804590353482/posts" target="_blank"><img src="/static/images/gplus.png"></a>
     			</div>
     		</div>
-    		
+
     		<div id="leftBar">
     			<div class="sidebarLeft" id="upperLeft">
     				<a href="/">Home</a>
     				<a href="/search">Search</a>
     				<a href='/podcast'>Podcast</a>
 
+    				{% block pages %}
     				{% for page in pages%}
     				<a href="/{{page.title}}">{{page.title}}</a>
     				{% endfor %}
+    				{% endblock %}
 
     			</div>
 
@@ -138,7 +140,7 @@
 						{% block content %}
 						{% if request.path == '/'%}
 						<div id="hero">
-							
+
 							<a href="{{featured.0.Post.link}}"><div id="feature1" style="background: url({{featured.0.imageURL}}) center center no-repeat;"><div class="{{cats.0}}"><span id="featuredTitle">{{featured.0.Post.title|safe}}</span></div>
 							</div></a>
 
@@ -172,13 +174,13 @@
 							</script>
 						</div>
 						{% include 'index.html' %}
-						
+
 						{% endblock %}
-						
+
 						<div id='disqus'>{% block disqus %} {% endblock %}</div>
 						<div id='paginator'>{% block pagination %}{% endblock %}</div>
-						
-						
+
+
 					</div>
 
 
@@ -203,7 +205,7 @@
 								<a href="/2012"><div id="twentytwelve">2012</div></a>
 								<a href="/2011"><div id="twentyeleven">2011</div></a>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>
@@ -222,7 +224,7 @@
 			var endless_on_scroll_margin = 50;
 			</script>
 
-			
+
 	</body>
 
 

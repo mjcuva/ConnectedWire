@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+
+{% block title %}
+<title>Podcast</title>
+{% endblock %}
+
+
+{% block content %}
+
+<div id='aboutPodcast'>
+
+<img id='podcastImage' src='http://theconnectedwire.com/static/images/podcast.png' alt='You Know...We should do a podcast!' title='You Know...We should do a podcast!'>
+
+<div id='aboutText'>
+    <p>
+        Conversation between nerds, about whatever happens to be on their mind.<br>
+        <span id='tag'>Featuring Marc Cuva and Paul Ahlberg</span>
+        <a id='button' class='subscribe' href='https://itunes.apple.com/us/podcast/you-know...-we-should-do-podcast!/id590308228?mt=2' target='_blank'>Subscribe in iTunes</a>
+    </p>
+</div>
+
+</div>
+
+<br style='clear:both;'>
+
+{% for podcast in podcasts %}
+
+<div class='post'>
+    
+    <h1  class = "title">{{podcast.title|safe}}</h1>
+
+    <hr>
+    <span class='category Rumor'><a class='catlink' href='/podcast'>Podcast</a></span>
+    {% if username %}
+        <div class="otherinfo">
+            <a class = "edit" href="delete/podcast/{{podcast.id}}">Delete</a> | <span class="date">{{podcast.date}}</span>
+        </div>
+    {% else %}
+        <div class="otherinfo">
+            <span class="date">{{podcast.date}}</span>
+        </div>
+    {% endif %}
+
+    {% if podcast.imageURL %}
+        <div class='imageWrapper'>
+            <img class="postImage" src="{{podcast.imageURL}}">
+        </div>
+    {% endif %}
+
+    <div>{{podcast.showNotes|safe}}</div>
+
+    <div class='audio'>
+        <audio controls class='audio'>
+            <source src='http://www.theconnectedwire.com{{podcast.link}}' type='audio/mpeg'>
+        </audio>
+    </div>
+
+    <a class='podcastDownload' id='button' href='http://www.theconnectedwire.com{{podcast.link}}' target='_blank'>Download</a>
+
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
+
+{% block pages %}
+{% for page in pages%}
+<a href="/{{page.title}}">{{page.title}}</a>
+{% endfor %}
+{% endblock %}
+
+{% block style %}
+<link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
+{% endblock %}

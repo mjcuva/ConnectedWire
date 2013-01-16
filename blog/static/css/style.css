@@ -908,6 +908,39 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	margin-top: 10px !important;
 }
 
+#aboutPodcast img{
+	width: 30%;
+	display: block;
+	float:left;
+}
+
+#aboutText {
+	font-size: 25px;
+	float:left;
+	display: inline-block;
+	width: 65%;
+	height: 242px;
+	margin-top: 20px;
+	position: absolute;
+	display: table;
+	left: 35%;
+	font-family: 'Monda', sans-serif;
+}
+
+#aboutText p{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#tag {
+	font-size: 20px;
+}
+
+.subscribe {
+	width: 200px !important;
+}
+
 
 @media screen and (max-width: 1075px){
 	.sidebarLeft, .sidebarRight{
@@ -968,6 +1001,19 @@ INPUT.hintTextboxActive { color: #000 !important; }
 		padding-right: 0px;
 	}
 
+	#podcastImage {
+		display: none !important;
+	}
+
+	#aboutPodcast {
+		height: 300px;
+	}
+
+	#aboutText {
+		width: 100%;
+		left: 20px;
+	}
+
 
 	/*#hero {
 		width: auto;
@@ -995,6 +1041,10 @@ INPUT.hintTextboxActive { color: #000 !important; }
 
 	#hero{
 		margin-left: -2px;
+		display: none;
+	}
+
+	#aboutPodcast{
 		display: none;
 	}
 }

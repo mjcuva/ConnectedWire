@@ -40,12 +40,15 @@ urlpatterns = patterns('',
     url(r'^deletetodo/?$', 'blog.dashboard.deleteTodo'),
     url(r'^podcast/rss?$', 'blog.podcast.generateRSS'),
     url(r'^newepisode?$', 'blog.podcast.addEpisode'),
+    url(r'^podcast/?$', 'blog.podcast.showEpisodes'),
+    url(r'^delete/podcast/(\d+)', 'blog.podcast.deleteEpisode'),
     url(r'^(\D+)/?$', 'blog.views.page'),
     # url(r'^dbrequest.json$', 'blog.views.dbrequest')
     
 )
 
-urlpatterns += patterns('',
-    (r'^images/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-    # (r'^podcasts/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.PODCAST_ROOT}),
-)
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^images/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+        (r'^podcasts/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.PODCAST_ROOT}),
+    )

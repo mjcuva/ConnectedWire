@@ -73,6 +73,7 @@ class Podcast(models.Model):
 	title = models.CharField(max_length = 100)
 	showNotes = models.TextField()
 	link = models.CharField(max_length = 100)
+	imageURL = models.CharField(max_length = 100, default = "")
 	length = models.CharField(max_length = 100)
 	date = models.DateTimeField()
 

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load custom_filters %}
 
+{% block title%}{%for post in posts%}<title>{{post.title|safe}}</title>{%endfor%}{%endblock%}
+
 {% block content %}
 
 {% for post in posts %}

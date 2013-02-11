@@ -622,9 +622,9 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	display: inline;
 }
 
-#twentythirteen {
+/*#twentythirteen {
 	background-color: green;
-}
+}*/
 
 #twentythirteen:hover{
 	background-color: #004c01;

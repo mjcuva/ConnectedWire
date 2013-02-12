@@ -44,6 +44,7 @@ class newPageForm(forms.Form):
 
 class newEpisodeForm(forms.Form):
     title = forms.CharField(max_length = 100)
-    episode = forms.FileField()
+    episode = forms.CharField(max_length = 100)
     image = forms.ImageField()
     showNotes = forms.CharField(widget=forms.Textarea)
+    length = forms.CharField(max_length = 100)

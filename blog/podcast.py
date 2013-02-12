@@ -35,17 +35,11 @@ def addEpisode(request):
 
         showNotes = request.POST['showNotes']
 
-        if 'episode' in request.FILES and title and showNotes:
-           
-            episode = request.FILES['episode']
+        episodeURL = '/podcasts/' + request.POST['episode']
 
-            store = FileSystemStorage(paths.SITE_ROOT + "/podcasts/")
+        size = request.POST['length']
 
-            storedEpisode = store.save(episode.name, episode)
-
-            episodeURL = "/podcasts/" + storedEpisode
-
-            size = store.size(episode.name)
+        if title and showNotes and episodeURL and size:
 
             published = datetime.datetime.now()
 

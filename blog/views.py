@@ -516,7 +516,7 @@ def save(request, form, image, saveType, url = None):
                 linkTitle = title.replace(' ', '-').lower()
 
                 
-                exclude = ['$', '#', '&', ';', ',']
+                exclude = ['$', '#', '&', ';', ',', '"', '?']
                 linkTitle = ''.join(ch for ch in linkTitle if ch not in exclude)
                 
                 link = str(published.year) + '/' + newmonth + '/' + linkTitle + '/'

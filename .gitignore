@@ -5,7 +5,7 @@
 Databases/mydb.db
 *.DS_Store
 
-
+deploy
 
 blog/secret.py
 

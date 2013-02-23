@@ -1059,4 +1059,10 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	.date {
 		display: none;
 	}
+
+	.imageWrapper{
+		margin-left: -26px;
+		height: 275px;
+		line-height: 230px;
+	}
 }

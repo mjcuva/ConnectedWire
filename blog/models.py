@@ -77,6 +77,9 @@ class Podcast(models.Model):
 	length = models.CharField(max_length = 100)
 	date = models.DateTimeField()
 
+	def __unicode__(self):
+		return str(self.id) + "	- " +  self.title
+
 
 
 

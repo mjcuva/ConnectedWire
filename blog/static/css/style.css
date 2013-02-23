@@ -956,7 +956,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	}
 
 	#page {
-		width: 93%;	
+		width: 94%;	
 		min-width: 100px;
 	}
 
@@ -968,7 +968,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 
 	body {
 		min-width: 1px;
-		padding-right: 0px;
+		padding: 0px;
 	}
 	#logo{
 		margin-left: 0px;
@@ -1006,7 +1006,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	}
 
 	body{
-		padding-right: 0px;
+		padding:0px;
 	}
 
 	#podcastImage {
@@ -1043,7 +1043,7 @@ INPUT.hintTextboxActive { color: #000 !important; }
 		padding-right: 2px;
 		padding-left: 2px;
 		float:none;
-		width: 95%;
+		width: 99%;
 		padding-top: 0px;
 	}
 
@@ -1053,6 +1053,10 @@ INPUT.hintTextboxActive { color: #000 !important; }
 	}
 
 	#aboutPodcast{
+		display: none;
+	}
+
+	.date {
 		display: none;
 	}
 }

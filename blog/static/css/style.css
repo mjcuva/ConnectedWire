@@ -974,7 +974,9 @@ INPUT.hintTextboxActive { color: #000 !important; }
 		margin-left: 0px;
 	}
 	#socialIcons{
-		margin-left: 75%;
+		float:right;
+		margin-top: -30px;
+		margin-right: 7px;
 	}
 
 	/*#hero {

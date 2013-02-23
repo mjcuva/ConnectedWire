@@ -15,9 +15,9 @@ Databases/mydb.db
 
 blog/__init__.py
 
-/static/
 
-images/
+/images/
+
 
 *.jpeg
 

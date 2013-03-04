@@ -5,6 +5,7 @@
 Databases/mydb.db
 *.DS_Store
 
+uploadpodcast
 deploy
 
 blog/secret.py

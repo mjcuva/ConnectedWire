@@ -40,17 +40,48 @@ $(document).ready(function(){
 		
 	}
 
+	function updateWordCount(){
+		var content = $("#id_content").val();
+		var wordCount = 0;
+		for(var i = 0; i < content.length; i++){
+			if(content[i] == ' '){
+				wordCount += 1;
+			}
+		}
+
+		console.log(wordCount);
+
+		if(wordCount < 100){
+			$("#wordcount").removeClass();
+			$("#wordcount").addClass('red');
+		}else if(wordCount < 200){
+			$("#wordcount").removeClass();
+			$("#wordcount").addClass('orange');
+		}else if(wordCount < 300){
+			$("#wordcount").removeClass();
+			$("#wordcount").addClass('yellow');
+		}else if(wordCount < 400){
+			$("#wordcount").removeClass();
+			$("#wordcount").addClass('blue');
+		}else{
+			$("#wordcount").removeClass();
+			$("#wordcount").addClass('green');
+		}
+
+		$("#wordcount").html(wordCount);
+	}
+
 	// Updates in case content was alreadly loaded into form
 	updatePreview();
 
 
 	$('#id_content').keyup(function(){
+		updateWordCount();
 		updatePreview();
-		
-
 	});
 
 	$('#id_content').change(function(){
+		updateWordCount();
 		updatePreview();
 	});
 

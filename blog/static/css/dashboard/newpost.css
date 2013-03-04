@@ -87,7 +87,6 @@ body{
 }
 
 #right {
-	background-color: black;
 	width: 14%;
 	height: auto;
 	float: left;
@@ -203,4 +202,31 @@ body{
 	border-radius: 5px;
 	font-size: 20px;
 
+}
+
+#wordcount {
+	text-align: center;
+	color: red;
+	font-size: 35px;
+	padding: 10px 0px;
+}
+
+.red {
+	color: red !important;
+}
+
+.orange {
+	color: orange !important;
+}
+
+.yellow {
+	color: yellow !important;
+}
+
+.blue {
+	color: blue !important;
+}
+
+.green {
+	color: green !important;
 }

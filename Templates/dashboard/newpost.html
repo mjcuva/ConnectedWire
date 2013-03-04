@@ -47,36 +47,47 @@
 
 			</div>
 
-			<div id='right' class='box'>
-				<div class='title'>Post Options</div>
-				<div id="catList">
-					<div class='header'>Select Categories</div>
-					{{form.categories}}
-				</div>
-				<hr>
-				<div id='featured'>
-					<div class='header'>{{form.featured}} Featured</div>
-				</div>
-				<hr>
-				<div id='inPost'>
-					<div class="header">{{form.imageInPost}} Image in Post</div>
-				</div>
+			<div id='right'>
+				<div class='box'>
+					<div class='title'>Post Options</div>
+					<div id="catList">
+						<div class='header'>Select Categories</div>
+						{{form.categories}}
+					</div>
+					<hr>
+					<div id='featured'>
+						<div class='header'>{{form.featured}} Featured</div>
+					</div>
+					<hr>
+					<div id='inPost'>
+						<div class="header">{{form.imageInPost}} Image in Post</div>
+					</div>
 
-				<button class='gray button' id='publish'>Publish</button>
-				{% if edit %}
-				<input type="submit" name="Delete" value="Delete" class='gray button' id='delete'>
-				{% endif %}
+					<button class='gray button' id='publish'>Publish</button>
+					{% if edit %}
+					<input type="submit" name="Delete" value="Delete" class='gray button' id='delete'>
+					{% endif %}
 
-				{% if error %}<div class='error'>{{error}}</div>{% endif %}
+					{% if error %}<div class='error'>{{error}}</div>{% endif %}
 
-				<br class="clear">
-				
+					<br class="clear">	
 
+				</div>	
+
+				<br class="clear">	
+
+				<div class='box'>
+					<div class='title'>Word Count</div>
+					<div id='wordcount'>0</div>
+
+				</div> 
+	
 
 			</div>
 
 
-		</form>
+	
+	  </form>
 	</div>
 
 {% endblock %}

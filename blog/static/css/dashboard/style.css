@@ -116,7 +116,8 @@ html, body {
 }
 
 #stats {
-	/*width: 400px;*/
+	width: 95.2380952%;
+	/*width: 400px;*/%
 	/*height: auto;*/
 }
 
@@ -163,7 +164,7 @@ html, body {
 }
 
 #suggestion{
-	width: 400px;
+	width: 95.2380952%;
 	/*height: auto;*/
 }
 
@@ -225,6 +226,7 @@ html, body {
 #left {
 	float: left;
 	height: 100%;
+	width: 34.4262295%;
 	display: block;
 }
 
@@ -234,6 +236,7 @@ html, body {
 }
 
 #todo{
+	width: 95.2380952% !important;   
 	overflow: auto;s
 }
 
@@ -246,12 +249,12 @@ html, body {
 
 }
 
-#todoTitle {
+/* #todoTitle {
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	position: absolute;
 	width: 400px;
-}
+} */
 
 #todoContent {
 	margin-top: 35px;

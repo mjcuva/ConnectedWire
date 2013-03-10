@@ -13,7 +13,7 @@
 	float: left;
 	background-image: url('/static/images/back.png');
 	min-height: 100%;
-	height: auto !important;
+	/*height: auto !important;*/
 	height: 100%;
 	width: 85%;
 	box-shadow: -2px 0px 3px #000;
@@ -107,7 +107,7 @@ html, body {
 
 .block {
 	width: 400px;
-	height: 245px;
+	height: 31.35%;
 	background-image: url('/static/dashboard/images/subtle_dots.png');
 	margin: 10px;
 	border-radius: 10px;
@@ -166,6 +166,7 @@ html, body {
 #suggestion{
 	width: 95.2380952%;
 	/*height: auto;*/
+	height: 29%;
 }
 
 #ds {
@@ -205,16 +206,17 @@ html, body {
 #pocketItems{
 	overflow: auto;
 	float: left;
-	width: 61.99005%;
+	width: 62.99005%;
 	min-width: 400px;
-	height: 750px;
+	height: 96%;
 }
 
 #pocketTitle {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	position: absolute;
-	width: 52.7%;
+	width:inherit;
+	width: 53.5%;
 	min-width: 400px;
 }
 
@@ -236,8 +238,9 @@ html, body {
 }
 
 #todo{
-	width: 95.2380952% !important;   
-	overflow: auto;s
+	width: 95.2380952%;   
+	overflow: auto;
+	height: 33.56%;
 }
 
 #addTodo {
@@ -249,12 +252,12 @@ html, body {
 
 }
 
-/* #todoTitle {
+#todoTitle {
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	position: absolute;
-	width: 400px;
-} */
+	width: 27.915%;
+}
 
 #todoContent {
 	margin-top: 35px;
@@ -325,5 +328,26 @@ html, body {
 	color: red;
 	cursor: pointer;
 	cursor: hand;
+}
 
+@media screen and (max-width: 900px){
+	#main{
+		height: auto !important;
+	}
+
+	#left {
+		width: 100%;
+	}
+
+	.block {
+		width: 96% !important;
+	}
+
+	#todoTitle {
+		width: 81.59%;
+	}
+
+	#pocketTitle{
+		width: 81.59%
+	}
 }

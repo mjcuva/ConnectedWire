@@ -71,6 +71,14 @@ $(document).ready(function(){
 		$("#wordcount").html(wordCount);
 	}
 
+	function updateHeight(){
+		if($('body').height() < $(window).height()){
+			$('body').height('100%');
+		}else{
+			$('body').height('auto');
+		}
+	}
+
 	// Updates in case content was alreadly loaded into form
 	updatePreview();
 
@@ -78,11 +86,13 @@ $(document).ready(function(){
 	$('#id_content').keyup(function(){
 		updateWordCount();
 		updatePreview();
+		updateHeight();
 	});
 
 	$('#id_content').change(function(){
 		updateWordCount();
 		updatePreview();
+		updateHeight();
 	});
 
 	$('#id_title').keyup(function(){

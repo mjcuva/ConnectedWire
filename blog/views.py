@@ -476,6 +476,7 @@ def save(request, form, image, saveType, url = None):
             if store.exists(image.name):
                 imageURL = '/images/' + image.name
                 featuredImage = imageURL
+                print "Exists"
             else:
                 storedImage = store.save(image.name, image)
                 imageURL = "/images/" + storedImage

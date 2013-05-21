@@ -478,7 +478,7 @@ def save(request, form, image, saveType, url = None):
             if store.exists(image.name):
                 imageURL = '/images/' + image.name
                 featuredImage = imageURL
-                logging.basicConfig(filename='~/output.log', level=logging.DEBUG)
+                logging.basicConfig(filename='output.log', level=logging.DEBUG)
                 logging.debug("EXISTS")
             else:
                 storedImage = store.save(image.name, image)

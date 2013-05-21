@@ -69,7 +69,7 @@ from django.conf import settings
 
 import urllib2
 
-import sys #error
+import logging
 
 
 # Homepage
@@ -478,7 +478,8 @@ def save(request, form, image, saveType, url = None):
             if store.exists(image.name):
                 imageURL = '/images/' + image.name
                 featuredImage = imageURL
-                print >> sys.stderr, "Exists"
+                logging.basicConfig(filename='~/output.log', level=logging.DEBUG)
+                logging.debug("EXISTS")
             else:
                 storedImage = store.save(image.name, image)
                 imageURL = "/images/" + storedImage

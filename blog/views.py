@@ -69,6 +69,8 @@ from django.conf import settings
 
 import urllib2
 
+import sys #error
+
 
 # Homepage
 def index(request):
@@ -476,7 +478,7 @@ def save(request, form, image, saveType, url = None):
             if store.exists(image.name):
                 imageURL = '/images/' + image.name
                 featuredImage = imageURL
-                print "Exists"
+                print >> sys.stderr, "Exists"
             else:
                 storedImage = store.save(image.name, image)
                 imageURL = "/images/" + storedImage

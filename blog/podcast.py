@@ -48,6 +48,7 @@ def addEpisode(request):
             size = output[size_start:size_start + 8]
         except subprocess.CalledProcessError:
             title = size = showNotes = episodeURL = ""
+            error = "subprocess"
 
 
 
@@ -81,7 +82,7 @@ def addEpisode(request):
             return HttpResponseRedirect('/podcast')
 
         else:
-            error = "You forgot something"
+            error = "Uh, oh. Something went wrong..."
 
 
     else:

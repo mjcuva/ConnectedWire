@@ -42,7 +42,8 @@ def addEpisode(request):
         try:
             output = subprocess.check_output('afinfo ' + paths.SITE_ROOT + episodeURL, shell=True)
             length_start = output.find("estimated duration: ") + 20
-            audio_length = output[length_start:length_start + 7]
+            length_end = output.find('.', length_start + 1)
+            audio_length = output[length_start:length_end]
 
             size_start = output.find("audio bytes: ") + 13
             size = output[size_start:size_start + 8]

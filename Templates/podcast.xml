@@ -43,9 +43,9 @@
 
             <guid>http://theconnectedwire.com{{podcast.link}}</guid>
 
-            <itunes:summary>{{podcast.showNotes}}</itunes:summary>
+            <itunes:summary>{{podcast.showNotes|striptags}}</itunes:summary>
 
-            <itunes:subtitle>{{podcast.showNotes}}</itunes:subtitle>
+            <itunes:subtitle>{{podcast.showNotes|striptags|slice:":255" }}</itunes:subtitle>
 
             <enclosure url="http://theconnectedwire.com{{podcast.link}}" length="{{podcast.length}}" type='audio/mpeg' />
 

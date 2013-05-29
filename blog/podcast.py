@@ -15,6 +15,8 @@ import paths
 
 import os
 
+import subprocess
+
 # Allows the request to be sent to the template
 from django.template import RequestContext
 
@@ -37,9 +39,19 @@ def addEpisode(request):
 
         episodeURL = '/podcasts/' + request.POST['episode']
 
-        size = request.POST['length']
+        try:
+            output = subprocess.check_output('afinfo ' + paths.SITE_ROOT + episodeURL, shell=True)
+            length_start = output.find("estimated duration: ") + 20
+            audio_length = output[length_start:length_start + 7]
 
-        if title and showNotes and episodeURL and size:
+            size_start = output.find("audio bytes: ") + 13
+            size = output[size_start:size_start + 8]
+        except subprocess.CalledProcessError:
+            title = size = showNotes = episodeURL = ""
+
+
+
+        if title and showNotes and episodeURL and size and audio_length:
 
             published = datetime.datetime.now()
 
@@ -62,7 +74,8 @@ def addEpisode(request):
                               showNotes = showNotes, 
                               length = size, 
                               date = published,
-                              imageURL = imageURL)
+                              imageURL = imageURL,
+                              audio_length = audio_length)
             episode.save()
 
             return HttpResponseRedirect('/podcast')
@@ -107,7 +120,6 @@ def deleteEpisode(request, id):
     episode = Podcast.objects.get(pk=id)
 
     try:
-        os.remove(paths.SITE_ROOT + episode.link)
         os.remove(paths.SITE_ROOT + episode.imageURL)
     except OSError:
         pass

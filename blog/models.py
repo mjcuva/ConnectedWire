@@ -75,6 +75,7 @@ class Podcast(models.Model):
 	link = models.CharField(max_length = 100)
 	imageURL = models.CharField(max_length = 100, default = "")
 	length = models.CharField(max_length = 100)
+	audio_length = models.CharField(max_length = 100, default = "")
 	date = models.DateTimeField()
 
 	def __unicode__(self):

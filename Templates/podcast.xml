@@ -3,33 +3,33 @@
 
     <channel>
 
-        <title>You Know... We Should Do a Podcast!</title>
+        <title>Connected Wire Podcast</title>
         <description></description>
         <link>http://theconnectedwire.com</link>
         <language>en-us</language>
-        <copyright>Copyright 2012-13</copyright>
+        <copyright>Copyright 2013</copyright>
         <lastBuildDate>{{podcasts.0.date|date:'r'}}</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <webMaster>marc@theconnectedwire.com</webMaster>
 
         <image>
             <url>http://theconnectedwire.com/static/images/podcast.png</url>
-            <title>You Know... We Should Do a Podcast!</title>
+            <title>The Connected Wire Podcast</title>
             <link>http://theconnectedwire.com{{podcast.link}}</link>
         </image>
 
-        <itunes:author>Marc Cuva and Paul Ahlberg</itunes:author>
+        <itunes:author>Marc Cuva, Paul Ahlberg, and Will Erickson</itunes:author>
 
-        <itunes:subtitle>Strange, Nerdy Conversation</itunes:subtitle>
+        <itunes:subtitle>Strange, Nerdy, and Hopefully Humorous Conversation</itunes:subtitle>
 
         <itunes:summary>Conversation between nerds, about whatever happens to be on their mind.</itunes:summary>
 
         <itunes:owner>
-            <itunes:name>Marc Cuva and Paul Ahlberg</itunes:name>
+            <itunes:name>Marc Cuva, Paul Ahlberg, and Will Erickson</itunes:name>
             <itunes:email>marc@theconnectedwire.com</itunes:email>
         </itunes:owner>
 
-        <itunes:explicit>No</itunes:explicit>
+        <itunes:explicit>Yes</itunes:explicit>
 
         <itunes:image href='http://theconnectedwire.com/static/images/podcast.png'/>
 
@@ -43,7 +43,9 @@
 
             <guid>http://theconnectedwire.com{{podcast.link}}</guid>
 
-            <description>{{podcast.showNotes}}</description>
+            <itunes:summary>{{podcast.showNotes}}</itunes:summary>
+
+            <itunes:subtitle>{{podcast.showNotes}}</itunes:subtitle>
 
             <enclosure url="http://theconnectedwire.com{{podcast.link}}" length="{{podcast.length}}" type='audio/mpeg' />
 
@@ -51,8 +53,10 @@
 
             <pubDate>{{podcast.date|date:'r'}}</pubDate>
 
+            <itunes:duration>{{podcast.audio_length}}</itunes:duration>
+
             <itunes:author>Marc Cuva and Paul Ahlberg</itunes:author>
-            <itunes:explicit>No</itunes:explicit>
+            <itunes:explicit>Yes</itunes:explicit>
             <itunes:image href='http://theconnectedwire.com/static/images/podcast.png' />
 
         </item>

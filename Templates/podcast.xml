@@ -55,7 +55,7 @@
 
             <itunes:duration>{{podcast.audio_length}}</itunes:duration>
 
-            <itunes:author>Marc Cuva and Paul Ahlberg</itunes:author>
+            <itunes:author>Marc Cuva, Paul Ahlberg, and Will Erickson</itunes:author>
             <itunes:explicit>Yes</itunes:explicit>
             <itunes:image href='http://theconnectedwire.com/static/images/podcast.png' />
 

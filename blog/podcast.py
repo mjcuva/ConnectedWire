@@ -84,7 +84,8 @@ def addEpisode(request):
 
         else:
             if not error:
-                error = title + showNotes + episodeURL 
+                if not title or showNotes or episodeURL
+                    error = "NO INFO"
 
 
     else:

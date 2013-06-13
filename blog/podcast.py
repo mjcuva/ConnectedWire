@@ -83,7 +83,7 @@ def addEpisode(request):
             return HttpResponseRedirect('/podcast')
 
         else:
-            error = "Uh, oh. Something went wrong..."
+            error = title
 
 
     else:

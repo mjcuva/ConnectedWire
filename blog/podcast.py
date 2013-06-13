@@ -53,7 +53,7 @@ def addEpisode(request):
 
 
 
-        if title and showNotes and episodeURL and size and audio_length:
+        if title and showNotes and episodeURL:
 
             published = datetime.datetime.now()
 

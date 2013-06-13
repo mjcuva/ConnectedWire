@@ -18,14 +18,14 @@
             <link>http://theconnectedwire.com{{podcast.link}}</link>
         </image>
 
-        <itunes:author>Marc Cuva, Paul Ahlberg, and Will Erickson</itunes:author>
+        <itunes:author>Marc Cuva, Paul Ahlberg, Will Erickson, and Philip Gibbons</itunes:author>
 
         <itunes:subtitle>Strange, Nerdy, and Hopefully Humorous Conversation</itunes:subtitle>
 
         <itunes:summary>Conversation between nerds, about whatever happens to be on their mind.</itunes:summary>
 
         <itunes:owner>
-            <itunes:name>Marc Cuva, Paul Ahlberg, and Will Erickson</itunes:name>
+            <itunes:name>Marc Cuva, Paul Ahlberg, Will Erickson, and Philip Gibbons</itunes:name>
             <itunes:email>marc@theconnectedwire.com</itunes:email>
         </itunes:owner>
 
@@ -55,7 +55,7 @@
 
             <itunes:duration>{{podcast.audio_length}}</itunes:duration>
 
-            <itunes:author>Marc Cuva, Paul Ahlberg, and Will Erickson</itunes:author>
+            <itunes:author>Marc Cuva, Paul Ahlberg, Will Erickson, and Philip Gibbons</itunes:author>
             <itunes:explicit>Yes</itunes:explicit>
             <itunes:image href='http://theconnectedwire.com/static/images/podcast.png' />
 

@@ -39,19 +39,9 @@ def addEpisode(request):
 
         episodeURL = '/podcasts/' + request.POST['episode']
 
-        try:
-            output = subprocess.check_output('afinfo ' + paths.SITE_ROOT + episodeURL, shell=True)
-            length_start = output.find("estimated duration: ") + 20
-            length_end = output.find('.', length_start + 1)
-            audio_length = output[length_start:length_end]
+        size = request.POST['size']
 
-            size_start = output.find("audio bytes: ") + 13
-            size = output[size_start:size_start + 8]
-        except subprocess.CalledProcessError:
-            title = size = showNotes = episodeURL = ""
-            error = "subprocess"
-
-
+        audio_length = request.POST['duration']
 
         if title and showNotes and episodeURL:
 
@@ -83,11 +73,7 @@ def addEpisode(request):
             return HttpResponseRedirect('/podcast')
 
         else:
-            if not error:
-                if not title or showNotes or episodeURL:
-                    error = "NO INFO"
-                else:
-                    error = "Something"
+            error = 'Something is amiss'
 
 
     else:
